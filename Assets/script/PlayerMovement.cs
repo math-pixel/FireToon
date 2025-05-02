@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 7f;
     public float acceleration = 20f;
     public float drag = 4f;
-
+    public float rotationSpeedLerp = 1f;
+    
     private Rigidbody rb;
     private Vector2 moveInput;
     private Vector3 moveDirection;
@@ -26,11 +27,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Convert input to world direction
+        // Mouvement
         Vector3 forward = Camera.main.transform.forward * moveInput.y;
         Vector3 right = Camera.main.transform.right * moveInput.x;
         moveDirection = forward.normalized + right.normalized;
         moveDirection.y = 0f;
+        
+        // Rotation
+        if (rb.velocity.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(rb.velocity.normalized);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeedLerp);
+        }
         
         Debug.Log("Move input: " + moveInput);
     }
