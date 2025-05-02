@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,10 +22,19 @@ public class FireworkBehaviour : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         // Destroy
-        if (transform.position.y < -1000 || transform.position.y > 1000 || transform.position.x < -1000 ||
-            transform.position.x > 1000)
+        if (transform.position.z < -100 || transform.position.z > 100 || transform.position.x < -100 ||
+            transform.position.x > 100)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name + " collided with " + gameObject.name);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<LifePlayer>().ReduceLife(1);
         }
     }
 }
