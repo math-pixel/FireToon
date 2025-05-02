@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public float drag = 4f;
     public float rotationSpeedLerp = 1f;
     
+    [Header("Shoot Settings")]
+    public GameObject projectilePrefab;
+    
     private Rigidbody rb;
     private Vector2 moveInput;
     private Vector3 moveDirection;
+    private bool fire = false;
     
     private void Awake()
     {
@@ -39,8 +43,18 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(rb.velocity.normalized);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeedLerp);
         }
+
+        if (fire)
+        {
+            Instantiate(projectilePrefab, transform.position, transform.rotation);
+        }
         
-        Debug.Log("Move input: " + moveInput);
+        resetState();
+    }
+
+    private void resetState()
+    {
+        fire = false;
     }
 
     private void FixedUpdate()
@@ -57,5 +71,12 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        // Debug.Log("Move input: " + moveInput);
+    }
+
+    public void OnFire(InputValue value)
+    {
+        Debug.Log(value);
+        fire = value.isPressed;
     }
 }
