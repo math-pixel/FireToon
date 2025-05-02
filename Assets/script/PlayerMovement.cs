@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Vector2 moveInput;
     private Vector3 moveDirection;
-
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,7 +27,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Convert input to world direction
-        moveDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
+        Vector3 forward = Camera.main.transform.forward * moveInput.y;
+        Vector3 right = Camera.main.transform.right * moveInput.x;
+        moveDirection = forward.normalized + right.normalized;
+        moveDirection.y = 0f;
+        
         Debug.Log("Move input: " + moveInput);
     }
 
