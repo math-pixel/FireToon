@@ -16,11 +16,13 @@ public class FireworkBehaviour : MonoBehaviour
     private int currentBounce = 0;
     private Rigidbody rb;
     private Vector3 lateVelocity;
+    private Vector3 directionBullet;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        directionBullet = transform.forward;
     }
 
     private void Update()
@@ -32,7 +34,7 @@ public class FireworkBehaviour : MonoBehaviour
     {
         
         // Go forward   
-        rb.velocity = gameObject.transform.forward * speed * Time.deltaTime;
+        rb.velocity = transform.forward * speed * Time.deltaTime;
         lateVelocity = rb.velocity;
         
         // Destroy
@@ -78,8 +80,11 @@ public class FireworkBehaviour : MonoBehaviour
             {
                 float curSpeed = lateVelocity.magnitude;
                 Vector3 direction = Vector3.Reflect(lateVelocity.normalized, other.contacts[0].normal);
+                directionBullet = direction * curSpeed * Time.deltaTime;
+
+                transform.rotation = Quaternion.LookRotation(direction);
                 
-                rb.velocity = direction * Mathf.Max(curSpeed, 0);
+                float angle = Vector3.Angle(direction, directionBullet);
                 currentBounce++;
             }
         

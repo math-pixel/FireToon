@@ -22,8 +22,10 @@ public class VFX_Firework : MonoBehaviour
     public void play()
     {
         transform.parent = null;
+        
         // Ajouter le composant VisualEffect
         VisualEffect vfx = gameObject.GetComponent<VisualEffect>();
+        
 
         // Appliquer le Vector3 exposé
         vfx.SetVector3("Position", transform.position);
