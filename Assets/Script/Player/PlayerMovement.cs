@@ -46,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (fire)
         {
-            Instantiate(projectilePrefab, transform.position, transform.rotation);
+            GameObject firework = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            firework.GetComponent<FireworkBehaviour>().setFireworkSender(gameObject);
         }
         
         resetState();
