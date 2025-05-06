@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeedLerp = 1f;
     
     [Header("Shoot Settings")]
-    public GameObject projectilePrefab;
+    public Gun gun;
     
     private Rigidbody rb;
     private Vector2 moveInput;
@@ -46,8 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (fire)
         {
-            GameObject firework = Instantiate(projectilePrefab, transform.position, transform.rotation);
-            firework.GetComponent<FireworkBehaviour>().setFireworkSender(gameObject);
+            gun.Shoot();
         }
         
         resetState();
