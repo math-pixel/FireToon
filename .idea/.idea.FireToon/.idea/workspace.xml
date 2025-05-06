@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/firework.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/firework.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/FireworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/FireworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VFX/Firework.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VFX/Firework.vfx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <updated>1746049030681</updated>
       <workItem from="1746049033413" duration="1183000" />
       <workItem from="1746301280739" duration="1218000" />
-      <workItem from="1746517099191" duration="3855000" />
+      <workItem from="1746517099191" duration="8442000" />
     </task>
     <servers />
   </component>

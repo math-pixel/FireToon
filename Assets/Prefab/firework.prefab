@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a29f8e2858a4bf40bccf942396c1d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  bounceNum: 0
+  speed: 3000
+  maxBounce: 3
   explosion: {fileID: 4175311557190949869}
 --- !u!54 &3640446076061921446
 Rigidbody:
@@ -232,7 +232,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!136 &5751089776136154141
 CapsuleCollider:
@@ -242,7 +242,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6816444120470938136}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.19384304
   m_Height: 1.425364
