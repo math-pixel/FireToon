@@ -26,6 +26,7 @@ public class LifePlayer : MonoBehaviour
         Debug.Log(gameObject.name + " has " + lifes + " live(s)");
         if (lifes <= 0)
         {
+            Destroy(gameObject);
             gameManager.GameOver();
         }
     }
