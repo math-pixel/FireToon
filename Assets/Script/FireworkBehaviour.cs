@@ -71,7 +71,7 @@ public class FireworkBehaviour : MonoBehaviour
             }
 
             // bounce
-            if (maxBounce <= 0)
+            if (currentBounce >= maxBounce)
             {
                 explosion.play();
                 Destroy(gameObject);
