@@ -20,9 +20,10 @@ public class PlayerRegistry : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void RegisterPlayer(PlayerInput input)
+    public void RegisterPlayer(PlayerInput input, int playerNumber)
     {
         RegisteredPlayers.Add(input);
+        input.gameObject.name = $"Player {playerNumber}";
         DontDestroyOnLoad(input.gameObject); // garde le joueur à travers les scènes
     }
 

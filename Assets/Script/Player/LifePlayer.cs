@@ -6,7 +6,6 @@ public class LifePlayer : MonoBehaviour
 {
     
     public int lifes = 3;
-    public GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,7 @@ public class LifePlayer : MonoBehaviour
         if (lifes <= 0)
         {
             Destroy(gameObject);
-            gameManager.GameOver();
+            GameManager.Instance.GameOver();
         }
     }
 

@@ -6,20 +6,22 @@ public class LobbyManager : MonoBehaviour
 {
     private void Update()
     {
+        // Event temporary
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            CustomSceneManager.Instance.ChangeScene("InGame");
+            changeScene();
         }
+    }
+
+    private void changeScene()
+    {
+        GameManager.Instance.UpdateState(GameManager.GameState.Playing);
     }
 
     private void OnPlayerJoined(PlayerInput playerInput)
     {
-        PlayerRegistry.Instance.RegisterPlayer(playerInput);
+        
+        PlayerRegistry.Instance.RegisterPlayer(playerInput, playerInput.playerIndex);
     }
 
-    // Appelé pour passer à la scène suivante
-    public void LoadGameScene()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
-    }
 }

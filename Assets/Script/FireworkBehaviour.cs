@@ -57,12 +57,14 @@ public class FireworkBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log(other.gameObject.name + " collided with " + gameObject.name);
         // test if ist not sender or another firework
         if (fireworkSender.name != other.gameObject.name && other.gameObject.name != gameObject.name)
         {
             
             // if  touch reduce life
-            Debug.Log(other.gameObject.name + " collided with " + gameObject.name);
+            Debug.Log("Firework touch " + other.gameObject.name);
+            // Debug.Log(other.gameObject.name + " collided with " + gameObject.name);
             if (other.gameObject.CompareTag("Player"))
             {
                 other.gameObject.GetComponent<LifePlayer>().ReduceLife(1);

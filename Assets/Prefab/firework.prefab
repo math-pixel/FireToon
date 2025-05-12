@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6816444118821495382}
   - component: {fileID: 6816444118821495379}
   - component: {fileID: 6816444118821495376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6816444120009802729}
   - component: {fileID: 6816444120009802730}
   - component: {fileID: 6816444120009802731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 8976981464345567677}
   - component: {fileID: 3640446076061921446}
   - component: {fileID: 5751089776136154141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: firework
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4175311557190949869}
   - component: {fileID: 561603226575318076}
   - component: {fileID: 7522709255342388856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

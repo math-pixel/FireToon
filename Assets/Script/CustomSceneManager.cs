@@ -31,9 +31,4 @@ public class CustomSceneManager : MonoBehaviour
     {
         
     }
-
-    public void ChangeScene(String sceneName)
-    {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-    }
 }
