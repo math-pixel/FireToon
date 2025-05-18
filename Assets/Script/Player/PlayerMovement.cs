@@ -18,10 +18,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     private bool fire = false;
     
+    // ANIMATION
+    private Animator animator;
+    private bool walkingAnimation = false;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Optional: avoid tipping over
+        
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -49,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             gun.Shoot();
         }
         
+        animator.SetBool("walk", walkingAnimation);
         resetState();
     }
 
@@ -71,6 +78,15 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        if (moveInput.x != 0 || moveInput.y != 0)
+        {
+            walkingAnimation = true;
+        }
+        else
+        {
+            walkingAnimation = false;
+        }
+        
         // Debug.Log("Move input: " + moveInput);
     }
 

@@ -226,6 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RegisteredPlayers: []
+  SkinList:
+  - {fileID: 2208432205092794596, guid: d612d44d9c5ef354aa04e533f76d1571, type: 3}
 --- !u!1 &353592022
 GameObject:
   m_ObjectHideFlags: 0
