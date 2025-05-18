@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/firework.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/firework.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/CustomSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/CustomSceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/LifePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/LifePlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/LobbyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/LobbyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/PlayerRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/PlayerRegistry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-    </list>
+    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +89,7 @@
       <workItem from="1746564409478" duration="6185000" />
       <workItem from="1746964601073" duration="1843000" />
       <workItem from="1747069720547" duration="3812000" />
-      <workItem from="1747074914816" duration="1505000" />
+      <workItem from="1747074914816" duration="1933000" />
     </task>
     <servers />
   </component>
