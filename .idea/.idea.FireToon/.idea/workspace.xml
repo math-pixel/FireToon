@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="" />
+    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/firework.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/firework.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/FireworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/FireworkBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/PlayerRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/PlayerRegistry.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +97,7 @@
       <workItem from="1747074914816" duration="1933000" />
       <workItem from="1747605739869" duration="3703000" />
       <workItem from="1748539030621" duration="3139000" />
-      <workItem from="1748559451919" duration="1081000" />
+      <workItem from="1748559451919" duration="2359000" />
     </task>
     <servers />
   </component>

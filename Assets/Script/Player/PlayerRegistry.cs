@@ -30,7 +30,7 @@ public class PlayerRegistry : MonoBehaviour
         
         // Change skin of player
         GameObject skin = Instantiate(SkinList[0], input.gameObject.transform);
-        skin.transform.localScale = new Vector3(1, 1, 1) * 1f;
+        skin.transform.localScale = new Vector3(1, 1, 1) * 2.88f;
         skin.transform.localPosition = new Vector3(0, -0.9f, 0);
         
         // save player across scene

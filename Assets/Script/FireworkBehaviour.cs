@@ -18,6 +18,8 @@ public class FireworkBehaviour : MonoBehaviour
     private Vector3 lateVelocity;
     private Vector3 directionBullet;
     
+    private Vector3 latestPosition;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,20 @@ public class FireworkBehaviour : MonoBehaviour
 
     private void Update()
     {
+
+        // Debug.Log("Firework need destroy : " + ApproximatelyEqual(transform.position, latestPosition, 5f));
+        // if (ApproximatelyEqual(transform.position, latestPosition, 5f))
+        // {
+        //     explosion.play();
+        //     Destroy(gameObject);
+        // }
+        
+        
+    }
+    
+    private static bool ApproximatelyEqual(Vector3 a, Vector3 b, float threshold = 0.0001f)
+    {
+        return Vector3.SqrMagnitude(a - b) <= threshold * threshold;
     }
 
     // Update is called once per frame
