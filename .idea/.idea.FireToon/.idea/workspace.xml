@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-    </list>
+    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +91,7 @@
       <workItem from="1747069720547" duration="3812000" />
       <workItem from="1747074914816" duration="1933000" />
       <workItem from="1747605739869" duration="3703000" />
-      <workItem from="1748539030621" duration="2053000" />
+      <workItem from="1748539030621" duration="2444000" />
     </task>
     <servers />
   </component>

@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 4175311557190949869}
   - component: {fileID: 561603226575318076}
   - component: {fileID: 7522709255342388856}
+  - component: {fileID: 7660498470600393863}
   m_Layer: 6
   m_Name: VFX
   m_TagString: Untagged
@@ -295,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01de7829069d4044b4bb99d3ee7c5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impulseSource: {fileID: 7660498470600393863}
 --- !u!2083052967 &561603226575318076
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -372,6 +374,59 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7660498470600393863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452494408803802837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 3
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -0.5, z: 0}
 --- !u!1001 &1740280134565554921
 PrefabInstance:
   m_ObjectHideFlags: 0

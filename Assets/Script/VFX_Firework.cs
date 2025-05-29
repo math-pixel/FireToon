@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.VFX;
 
 public class VFX_Firework : MonoBehaviour
 {
 
+    public CinemachineImpulseSource impulseSource;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,8 @@ public class VFX_Firework : MonoBehaviour
 
         // Déclencher l'effet
         vfx.SendEvent("PlayFirework");
+        
+        impulseSource.GenerateImpulse();
 
         // Optionnel : détruire l'objet après 5s pour éviter les fuites mémoire
         Destroy(gameObject, 5f);
