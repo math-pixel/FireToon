@@ -9,6 +9,8 @@ public class VFX_Firework : MonoBehaviour
 
     public CinemachineImpulseSource impulseSource;
     
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,17 +26,16 @@ public class VFX_Firework : MonoBehaviour
     public void play()
     {
         transform.parent = null;
-        
-        // Ajouter le composant VisualEffect
-        VisualEffect vfx = gameObject.GetComponent<VisualEffect>();
-        
 
-        // Appliquer le Vector3 exposé
-        vfx.SetVector3("Position", transform.position);
+        Component[] particles = gameObject.GetComponentsInChildren<ParticleSystem>();
 
-        // Déclencher l'effet
-        vfx.SendEvent("PlayFirework");
+        // display particles
+        foreach (ParticleSystem particle in particles)
+        {
+            particle.Play();
+        }
         
+        // Shake the cam
         impulseSource.GenerateImpulse();
 
         // Optionnel : détruire l'objet après 5s pour éviter les fuites mémoire
