@@ -1,11 +1,32 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class LobbyManager : MonoBehaviour
 {
+    private PlayerRegistry _playerRegistry;
+    public Timer Timer;
+    private bool timerStarted = false;
+
+    private void Start()
+    {
+        _playerRegistry = gameObject.GetComponent<PlayerRegistry>();
+    }
+
     private void Update()
     {
+
+        if (_playerRegistry.IsAllPlayersRegistered())
+        {
+            if (!timerStarted)
+            {
+                timerStarted = true;
+                Timer.StartCountdown(3, changeScene);
+            }
+        }
+        
         // Event temporary
         if (Input.GetKeyDown(KeyCode.Escape))
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerRegistry : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class PlayerRegistry : MonoBehaviour
     
     public List<GameObject> SkinList = new List<GameObject>();
 
+    
+    public int playerCount = 1;
+    public TMP_Text playerCountText;
+    
+    private int currentNumberOfPlayers = 0;
+    
     void Awake()
     {
         if (Instance != null)
@@ -35,6 +42,7 @@ public class PlayerRegistry : MonoBehaviour
         
         // save player across scene
         DontDestroyOnLoad(input.gameObject); // garde le joueur à travers les scènes
+        currentNumberOfPlayers++;
         
     }
 
@@ -44,5 +52,36 @@ public class PlayerRegistry : MonoBehaviour
             Destroy(player.gameObject);
 
         RegisteredPlayers.Clear();
+        currentNumberOfPlayers = 0;
+    }
+
+    public bool IsAllPlayersRegistered()
+    {
+        if (currentNumberOfPlayers == playerCount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public void AddPlayerCount()
+    {
+        if (playerCount + 1 <= 4)
+        {
+            playerCount++;
+            playerCountText.text = playerCount.ToString();
+        }
+    }
+
+    public void RemovePlayerCount()
+    {
+        if (playerCount >= 1)
+        {
+            playerCount--;
+            playerCountText.text = playerCount.ToString();
+        }
     }
 }
