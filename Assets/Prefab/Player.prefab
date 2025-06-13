@@ -259,11 +259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07da9db69c09eeb4da472523b21b9283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  acceleration: 20
-  drag: 4
-  rotationSpeedLerp: 15
-  gun: {fileID: 3847536500513548108}
+  moveSpeed: 11
+  acceleration: 50
+  drag: 10
+  rotationSpeedLerp: 20
+  gun: {fileID: 0}
 --- !u!114 &3847536499272901886
 MonoBehaviour:
   m_ObjectHideFlags: 0
