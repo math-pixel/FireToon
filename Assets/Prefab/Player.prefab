@@ -264,7 +264,7 @@ MonoBehaviour:
   acceleration: 50
   drag: 10
   rotationSpeedLerp: 20
-  gun: {fileID: 0}
+  gun: {fileID: 3847536500513548108}
 --- !u!114 &3847536499272901886
 MonoBehaviour:
   m_ObjectHideFlags: 0
