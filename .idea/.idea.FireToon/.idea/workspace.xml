@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Timer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Timer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/LobbyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/LobbyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/PlayerRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/PlayerRegistry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI-GUI Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI-GUI Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/character-male-b.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/character-male-b.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +42,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="D:\logiciel\2021.3.12f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\creation de jeux\FireToon&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\creation de jeux\FireToon" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -56,7 +50,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="D:\logiciel\2021.3.12f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\creation de jeux\FireToon&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\creation de jeux\FireToon" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -104,6 +98,7 @@
       <workItem from="1748559451919" duration="2359000" />
       <workItem from="1749761235174" duration="2681000" />
       <workItem from="1749820277814" duration="2294000" />
+      <workItem from="1749844143608" duration="623000" />
     </task>
     <servers />
   </component>
