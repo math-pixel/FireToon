@@ -25,10 +25,17 @@ public class LifePlayer : MonoBehaviour
         Debug.Log(gameObject.name + " has " + lifes + " live(s)");
         if (lifes <= 0)
         {
-            Destroy(gameObject);
-            GameManager.Instance.GameOver();
+            StartCoroutine(deadplayer());
         }
     }
+    
+    private IEnumerator deadplayer()
+    {
+        gameObject.GetComponent<PlayerMovement>().animator.SetTrigger("die");
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.GameOver();
+        Destroy(gameObject);
+    } 
 
     public void IncreaseLife(int amount)
     {

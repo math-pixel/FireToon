@@ -12,15 +12,19 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Shoot Settings")]
     public Gun gun;
+
+    public float gunBackForce = 100f;
     
     private Rigidbody rb;
     private Vector2 moveInput;
     private Vector3 moveDirection;
+    private Vector3 lastMoveDirection;
     private bool fire = false;
     
     // ANIMATION
-    private Animator animator;
+    public Animator animator;
     private bool walkingAnimation = false;
+    private bool fireStateAnimation = false;
     
     private void Awake()
     {
@@ -42,7 +46,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 right = Camera.main.transform.right * moveInput.x;
         moveDirection = forward.normalized + right.normalized;
         moveDirection.y = 0f;
-
+        
+        // save last direction for gun back force
+        if (moveDirection != Vector3.zero)
+        {
+            lastMoveDirection = moveDirection;
+        }
         
         // Rotation
         if (rb.velocity.magnitude > 0.1f)
@@ -54,8 +63,11 @@ public class PlayerMovement : MonoBehaviour
         if (fire)
         {
             gun.Shoot();
+            // Debug.Log(lastMoveDirection);
+            rb.AddForce(-lastMoveDirection * gunBackForce, ForceMode.Impulse);
         }
         
+        animator.SetBool("fire", fireStateAnimation);
         animator.SetBool("walk", walkingAnimation);
         resetState();
     }
@@ -63,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     private void resetState()
     {
         fire = false;
+        fireStateAnimation = false;
     }
 
     private void FixedUpdate()
@@ -93,7 +106,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnFire(InputValue value)
     {
-        Debug.Log(value);
         fire = value.isPressed;
+        Debug.Log("fire : " + fire);
+        if (fire)
+        {
+            fireStateAnimation = true;
+        }
+        
     }
 }
