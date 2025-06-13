@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 right = Camera.main.transform.right * moveInput.x;
         moveDirection = forward.normalized + right.normalized;
         moveDirection.y = 0f;
+
         
         // Rotation
         if (rb.velocity.magnitude > 0.1f)

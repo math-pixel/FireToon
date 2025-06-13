@@ -41,7 +41,7 @@ public class LobbyManager : MonoBehaviour
 
     private void OnPlayerJoined(PlayerInput playerInput)
     {
-        
+        Debug.Log("New Player joined");
         PlayerRegistry.Instance.RegisterPlayer(playerInput, playerInput.playerIndex);
     }
 

@@ -11,6 +11,7 @@ public class PlayerRegistry : MonoBehaviour
     
     public List<GameObject> SkinList = new List<GameObject>();
 
+    public GameObject spawner;
     
     public int playerCount = 1;
     public TMP_Text playerCountText;
@@ -32,8 +33,12 @@ public class PlayerRegistry : MonoBehaviour
     public void RegisterPlayer(PlayerInput input, int playerNumber)
     {
         RegisteredPlayers.Add(input);
+        
         // change Name player
-        input.gameObject.name = $"Player {playerNumber}";
+        // its auto instanciate
+        GameObject playerGO = input.gameObject;
+        playerGO.name = $"Player {playerNumber}";
+        playerGO.transform.position = spawner.transform.position;
         
         // Change skin of player
         GameObject skin = Instantiate(SkinList[0], input.gameObject.transform);
