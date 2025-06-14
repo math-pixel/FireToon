@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -35,6 +36,17 @@ public class SpawnerPlayers : MonoBehaviour
 
             // S'assurer que les composants nécessaires sont réinitialisés si besoin
             // player.GetComponent<PlayerController>()?.ResetPlayer();
+
+            if (GameManager.Instance.currentState == GameManager.GameState.ScoreBoard)
+            {
+                // refuse mouvement if its on ending scene
+                PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+                playerMovement.canMove = false;
+                
+                // play ending animation
+                String AnimationName = i == 0 ? "EndingAnimationWinner" : "EndingAnimationLooser";
+                playerMovement.animator.SetBool(AnimationName, true);
+            }
         }
     }
 }

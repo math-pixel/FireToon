@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration = 20f;
     public float drag = 4f;
     public float rotationSpeedLerp = 1f;
+    public bool canMove = true;
     
     [Header("Shoot Settings")]
     public Gun gun;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        canMove = true;
         rb.centerOfMass = centerOfMass.transform.position;
         rb.drag = drag;
     }
@@ -46,10 +48,13 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Mouvement
-        Vector3 forward = Camera.main.transform.forward * moveInput.y;
-        Vector3 right = Camera.main.transform.right * moveInput.x;
-        moveDirection = forward.normalized + right.normalized;
-        moveDirection.y = 0f;
+        if (canMove)
+        {
+            Vector3 forward = Camera.main.transform.forward * moveInput.y;
+            Vector3 right = Camera.main.transform.right * moveInput.x;
+            moveDirection = forward.normalized + right.normalized;
+            moveDirection.y = 0f;
+        }
         
         // save last direction for gun back force
         if (moveDirection != Vector3.zero)
@@ -64,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeedLerp);
         }
 
-        if (fire)
+        if (fire && canMove)
         {
             gun.Shoot();
             // Debug.Log(lastMoveDirection);
