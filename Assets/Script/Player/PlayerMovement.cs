@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
         if (fire && canMove)
         {
             gun.Shoot();
-            // Debug.Log(lastMoveDirection);
             rb.AddForce(-lastMoveDirection * gunBackForce, ForceMode.Impulse);
         }
         
