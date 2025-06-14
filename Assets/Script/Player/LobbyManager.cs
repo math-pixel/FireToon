@@ -12,6 +12,7 @@ public class LobbyManager : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.lobbyManager = this;
         _playerRegistry = gameObject.GetComponent<PlayerRegistry>();
     }
 

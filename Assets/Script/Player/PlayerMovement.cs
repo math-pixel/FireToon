@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float gunBackForce = 100f;
     
     // Rigidbody
+    [Header("Rigidbody Settings")]
+    public GameObject centerOfMass;
     private Rigidbody rb;
     private Vector2 moveInput;
     private Vector3 moveDirection;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private bool fire = false;
     
     // ANIMATION
+    [Header("Animation Settings")]
     public Animator animator;
     private bool walkingAnimation = false;
     private bool fireStateAnimation = false;
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        rb.centerOfMass = centerOfMass.transform.position;
         rb.drag = drag;
     }
 

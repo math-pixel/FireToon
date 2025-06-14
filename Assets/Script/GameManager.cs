@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameState { Start, Lobby, Menu, Playing, ScoreBoard, Paused, GameOver }
     public GameState currentState { get; private set; }
-
+    public LobbyManager lobbyManager;
     
     void Awake()
     {
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         PlayerRegistry.Instance.Clear();
+        Destroy(lobbyManager?.gameObject);
         UpdateState(GameState.Start);
     }
 

@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EndingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EndingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/LifePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/LifePlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/LobbyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/LobbyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +103,7 @@
       <workItem from="1749761235174" duration="2681000" />
       <workItem from="1749820277814" duration="2294000" />
       <workItem from="1749844143608" duration="4005000" />
-      <workItem from="1749896493019" duration="5942000" />
+      <workItem from="1749896493019" duration="6979000" />
     </task>
     <servers />
   </component>
