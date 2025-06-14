@@ -27,6 +27,7 @@ public class SpawnerPlayers : MonoBehaviour
 
     void SpawnPlayers(List<PlayerInput> players)
     {
+        Debug.Log(players);
         for (int i = 0; i < players.Count && i < spawnPoints.Length; i++)
         {
             var player = players[i];
@@ -42,6 +43,9 @@ public class SpawnerPlayers : MonoBehaviour
                 // refuse mouvement if its on ending scene
                 PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
                 playerMovement.canMove = false;
+                
+                // remove gun from final podium
+                playerMovement.removeGun();
                 
                 // play ending animation
                 String AnimationName = i == 0 ? "EndingAnimationWinner" : "EndingAnimationLooser";

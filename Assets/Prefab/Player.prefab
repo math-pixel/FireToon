@@ -249,6 +249,7 @@ MonoBehaviour:
   rotationSpeedLerp: 20
   canMove: 1
   gun: {fileID: 3847536500513548108}
+  gunMesh: {fileID: 2569873906948851990}
   gunBackForce: 100
   centerOfMass: {fileID: 6707621522028056948}
   animator: {fileID: 0}
@@ -5270,6 +5271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5f97a4f8d6e514bb52df8b3ec387a7, type: 3}
+--- !u!1 &2569873906948851990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b5f97a4f8d6e514bb52df8b3ec387a7, type: 3}
+  m_PrefabInstance: {fileID: 3416947209948001351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9009002950181879882
 PrefabInstance:
   m_ObjectHideFlags: 0

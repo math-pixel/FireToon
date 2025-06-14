@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Shoot Settings")]
     public Gun gun;
+    public GameObject gunMesh;
     public float gunBackForce = 100f;
     
     // Rigidbody
@@ -121,5 +122,10 @@ public class PlayerMovement : MonoBehaviour
             fireStateAnimation = true;
         }
         
+    }
+
+    public void removeGun()
+    {
+        gunMesh.SetActive(false);
     }
 }
