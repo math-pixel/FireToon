@@ -8,8 +8,6 @@ public class PlayerRegistry : MonoBehaviour
 {
     public static PlayerRegistry Instance;
     public List<PlayerInput> RegisteredPlayers = new List<PlayerInput>();
-    
-    public List<GameObject> SkinList = new List<GameObject>();
 
     public GameObject spawner;
     
@@ -41,9 +39,10 @@ public class PlayerRegistry : MonoBehaviour
         playerGO.transform.position = spawner.transform.position;
         
         // Change skin of player
-        GameObject skin = Instantiate(SkinList[0], input.gameObject.transform);
-        skin.transform.localScale = new Vector3(1, 1, 1) * 2.88f;
-        skin.transform.localPosition = new Vector3(0, -0.9f, 0);
+        // GameObject Player = Instantiate(PlayerPrefab, input.gameObject.transform);
+        // Player.transform.localScale = new Vector3(1, 1, 1) * 2.88f;
+        // Player.transform.localPosition = new Vector3(0, -0.9f, 0);
+        
         
         // save player across scene
         DontDestroyOnLoad(input.gameObject); // garde le joueur à travers les scènes
