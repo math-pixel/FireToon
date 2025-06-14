@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LifePlayer : MonoBehaviour
 {
@@ -33,8 +34,8 @@ public class LifePlayer : MonoBehaviour
     {
         gameObject.GetComponent<PlayerMovement>().animator.SetTrigger("die");
         yield return new WaitForSeconds(0.5f);
-        GameManager.Instance.GameOver();
-        // Destroy(gameObject);
+        GameManager.Instance.PlayerDead(gameObject.GetComponent<PlayerInput>());
+        gameObject.SetActive(false);
     } 
 
     public void IncreaseLife(int amount)

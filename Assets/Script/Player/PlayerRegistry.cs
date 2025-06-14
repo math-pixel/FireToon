@@ -82,7 +82,7 @@ public class PlayerRegistry : MonoBehaviour
 
     public void RemovePlayerCount()
     {
-        if (playerCount >= 1)
+        if (playerCount - 1 >= 1)
         {
             playerCount--;
             playerCountText.text = playerCount.ToString();

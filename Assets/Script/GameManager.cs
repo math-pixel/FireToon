@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +13,8 @@ public class GameManager : MonoBehaviour
     public enum GameState { Start, Lobby, Menu, Playing, ScoreBoard, Paused, GameOver }
     public GameState currentState { get; private set; }
     public LobbyManager lobbyManager;
+    
+    public List<PlayerInput> LeaderboardPlayers = new List<PlayerInput>();
     
     void Awake()
     {
@@ -24,6 +29,24 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void PlayerDead(PlayerInput player)
+    {
+        LeaderboardPlayers.Insert(0, player);
+
+        // if there is only one survival
+        if (LeaderboardPlayers.Count == PlayerRegistry.Instance.RegisteredPlayers.Count - 1)
+        {
+            // hhow to add the last survival 
+            // Trouve le dernier joueur vivant
+            PlayerInput lastSurvivor = PlayerRegistry.Instance.RegisteredPlayers
+                .First(p => !LeaderboardPlayers.Contains(p));
+
+            // L'ajoute en dernier au leaderboard
+            LeaderboardPlayers.Insert(0, lastSurvivor);
+            
+            GameOver();
+        }
+    }
 
     public void GameOver()
     {
@@ -33,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        LeaderboardPlayers = new List<PlayerInput>();
         PlayerRegistry.Instance.Clear();
         Destroy(lobbyManager?.gameObject);
         UpdateState(GameState.Start);

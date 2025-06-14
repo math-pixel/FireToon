@@ -12,8 +12,11 @@ public class LobbyManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.lobbyManager = this;
         _playerRegistry = gameObject.GetComponent<PlayerRegistry>();
+     
+        // add lobby script to game manger for detroy at the end of the party
+        GameManager.Instance.lobbyManager = this;
+        
     }
 
     private void Update()
@@ -43,7 +46,10 @@ public class LobbyManager : MonoBehaviour
     private void OnPlayerJoined(PlayerInput playerInput)
     {
         Debug.Log("New Player joined");
-        PlayerRegistry.Instance.RegisterPlayer(playerInput, playerInput.playerIndex);
+        if (GameManager.Instance?.currentState == GameManager.GameState.Lobby)
+        {
+            PlayerRegistry.Instance.RegisterPlayer(playerInput, playerInput.playerIndex);
+        }
     }
 
 }
