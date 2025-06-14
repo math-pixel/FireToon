@@ -1,0 +1,422 @@
+fileFormatVersion: 2
+guid: 5fcb81d94e14a8b4689f40ea6be68407
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 6150031163922475716
+    second: root|root|attack-kick-left|Animation Base Layer
+  - first:
+      74: 1182640981491172618
+    second: root|root|attack-kick-right|Animation Base Layer
+  - first:
+      74: -253406015608787356
+    second: root|root|attack-melee-left|Animation Base Layer
+  - first:
+      74: -8144177727479154073
+    second: root|root|attack-melee-right|Animation Base Layer
+  - first:
+      74: -4086348228547945711
+    second: root|root|crouch|Animation Base Layer
+  - first:
+      74: 401096851802671666
+    second: root|root|die|Animation Base Layer
+  - first:
+      74: -3903769022997438405
+    second: root|root|drive|Animation Base Layer
+  - first:
+      74: 1581666669867988496
+    second: root|root|emote-no|Animation Base Layer
+  - first:
+      74: 3255372039743501647
+    second: root|root|emote-yes|Animation Base Layer
+  - first:
+      74: -4300450695690348769
+    second: root|root|fall|Animation Base Layer
+  - first:
+      74: 8377832795686432734
+    second: root|root|holding-both-shoot|Animation Base Layer
+  - first:
+      74: 8728241060593851898
+    second: root|root|holding-both|Animation Base Layer
+  - first:
+      74: -335653627433159182
+    second: root|root|holding-left-shoot|Animation Base Layer
+  - first:
+      74: 5322020844017372928
+    second: root|root|holding-left|Animation Base Layer
+  - first:
+      74: 1319614672667607500
+    second: root|root|holding-right-shoot|Animation Base Layer
+  - first:
+      74: 6337849156744493638
+    second: root|root|holding-right|Animation Base Layer
+  - first:
+      74: -9195010601684544385
+    second: root|root|idle|Animation Base Layer
+  - first:
+      74: 2373297778928799813
+    second: root|root|interact-left|Animation Base Layer
+  - first:
+      74: 3655322499358252746
+    second: root|root|interact-right|Animation Base Layer
+  - first:
+      74: 2274258124328143277
+    second: root|root|jump|Animation Base Layer
+  - first:
+      74: -342961543643477631
+    second: root|root|pick-up|Animation Base Layer
+  - first:
+      74: -8070067571321436051
+    second: root|root|sit|Animation Base Layer
+  - first:
+      74: 8582919116671629185
+    second: root|root|sprint|Animation Base Layer
+  - first:
+      74: -689109660933810694
+    second: root|root|static|Animation Base Layer
+  - first:
+      74: -1369534756015569962
+    second: root|root|static|Animation Base Layer.001
+  - first:
+      74: 1675440898487526553
+    second: root|root|static|Animation Base Layer.002
+  - first:
+      74: 6370708444447077994
+    second: root|root|walk|Animation Base Layer
+  - first:
+      74: 4645814798184754711
+    second: root|root|wheelchair-look-left|Animation Base Layer
+  - first:
+      74: 2154810310349122510
+    second: root|root|wheelchair-look-right|Animation Base Layer
+  - first:
+      74: -3699875887884264055
+    second: root|root|wheelchair-move-back|Animation Base Layer
+  - first:
+      74: -1897993553822989930
+    second: root|root|wheelchair-move-forward|Animation Base Layer
+  - first:
+      74: -9189634660964719577
+    second: root|root|wheelchair-move-left|Animation Base Layer
+  - first:
+      74: 6155084554039645629
+    second: root|root|wheelchair-move-right|Animation Base Layer
+  - first:
+      74: -3132714076117775007
+    second: root|root|wheelchair-sit|Animation Base Layer
+  - first:
+      74: -908170473833788383
+    second: root.001|root|attack-kick-left|Animation Base Layer
+  - first:
+      74: 3963145221002832274
+    second: root.001|root|attack-kick-right|Animation Base Layer
+  - first:
+      74: -6340212719338335560
+    second: root.001|root|attack-melee-left|Animation Base Layer
+  - first:
+      74: -3838957384999400595
+    second: root.001|root|attack-melee-right|Animation Base Layer
+  - first:
+      74: 7283680104560377022
+    second: root.001|root|crouch|Animation Base Layer
+  - first:
+      74: -8775554241509978070
+    second: root.001|root|die|Animation Base Layer
+  - first:
+      74: -2391448534635810536
+    second: root.001|root|drive|Animation Base Layer
+  - first:
+      74: -240973637791843332
+    second: root.001|root|emote-no|Animation Base Layer
+  - first:
+      74: -3702942395918939565
+    second: root.001|root|emote-yes|Animation Base Layer
+  - first:
+      74: 574441437283967677
+    second: root.001|root|fall|Animation Base Layer
+  - first:
+      74: -2335364095753737530
+    second: root.001|root|holding-both-shoot|Animation Base Layer
+  - first:
+      74: 5522974876648923090
+    second: root.001|root|holding-both|Animation Base Layer
+  - first:
+      74: -6916500048812362723
+    second: root.001|root|holding-left-shoot|Animation Base Layer
+  - first:
+      74: -3386954961950490981
+    second: root.001|root|holding-left|Animation Base Layer
+  - first:
+      74: 6756718514100657664
+    second: root.001|root|holding-right-shoot|Animation Base Layer
+  - first:
+      74: 3018210555746790797
+    second: root.001|root|holding-right|Animation Base Layer
+  - first:
+      74: 6678623871245349440
+    second: root.001|root|idle|Animation Base Layer
+  - first:
+      74: 4501158335149380197
+    second: root.001|root|interact-left|Animation Base Layer
+  - first:
+      74: 5730741051478830563
+    second: root.001|root|interact-right|Animation Base Layer
+  - first:
+      74: 5125778672380004645
+    second: root.001|root|jump|Animation Base Layer
+  - first:
+      74: 9017239246248411993
+    second: root.001|root|pick-up|Animation Base Layer
+  - first:
+      74: -7890573950055057491
+    second: root.001|root|sit|Animation Base Layer
+  - first:
+      74: -8671833323702008762
+    second: root.001|root|sprint|Animation Base Layer
+  - first:
+      74: -626933230371181161
+    second: root.001|root|static|Animation Base Layer
+  - first:
+      74: -1397577512722124603
+    second: root.001|root|static|Animation Base Layer.001
+  - first:
+      74: 9170768511551247959
+    second: root.001|root|static|Animation Base Layer.002
+  - first:
+      74: 6837004991137126136
+    second: root.001|root|walk|Animation Base Layer
+  - first:
+      74: -8121654173337935888
+    second: root.001|root|wheelchair-look-left|Animation Base Layer
+  - first:
+      74: 8612251499028804835
+    second: root.001|root|wheelchair-look-right|Animation Base Layer
+  - first:
+      74: 8780134617128489427
+    second: root.001|root|wheelchair-move-back|Animation Base Layer
+  - first:
+      74: -4097604505020498304
+    second: root.001|root|wheelchair-move-forward|Animation Base Layer
+  - first:
+      74: 2725492657024839854
+    second: root.001|root|wheelchair-move-left|Animation Base Layer
+  - first:
+      74: 5547987722962160764
+    second: root.001|root|wheelchair-move-right|Animation Base Layer
+  - first:
+      74: -6546973317338090115
+    second: root.001|root|wheelchair-sit|Animation Base Layer
+  - first:
+      74: 4122486819204539667
+    second: root.002|root|attack-kick-left|Animation Base Layer
+  - first:
+      74: -7570205830535520122
+    second: root.002|root|attack-kick-right|Animation Base Layer
+  - first:
+      74: -6135567876146505090
+    second: root.002|root|attack-melee-left|Animation Base Layer
+  - first:
+      74: -7781419478491975470
+    second: root.002|root|attack-melee-right|Animation Base Layer
+  - first:
+      74: 7732579658213853486
+    second: root.002|root|crouch|Animation Base Layer
+  - first:
+      74: -7845453213883399798
+    second: root.002|root|die|Animation Base Layer
+  - first:
+      74: 3875227685055888971
+    second: root.002|root|drive|Animation Base Layer
+  - first:
+      74: 152040856317465988
+    second: root.002|root|emote-no|Animation Base Layer
+  - first:
+      74: -4791657257736322386
+    second: root.002|root|emote-yes|Animation Base Layer
+  - first:
+      74: 8637849245568543246
+    second: root.002|root|fall|Animation Base Layer
+  - first:
+      74: -560406885135262349
+    second: root.002|root|holding-both-shoot|Animation Base Layer
+  - first:
+      74: 5468166009075863826
+    second: root.002|root|holding-both|Animation Base Layer
+  - first:
+      74: 2796451750943786788
+    second: root.002|root|holding-left-shoot|Animation Base Layer
+  - first:
+      74: 337395294495687778
+    second: root.002|root|holding-left|Animation Base Layer
+  - first:
+      74: 443597609931732972
+    second: root.002|root|holding-right-shoot|Animation Base Layer
+  - first:
+      74: 3302788651677498008
+    second: root.002|root|holding-right|Animation Base Layer
+  - first:
+      74: -881442998777006519
+    second: root.002|root|idle|Animation Base Layer
+  - first:
+      74: 2889607407068123290
+    second: root.002|root|interact-left|Animation Base Layer
+  - first:
+      74: 7403417295467577869
+    second: root.002|root|interact-right|Animation Base Layer
+  - first:
+      74: -5740061974095161557
+    second: root.002|root|jump|Animation Base Layer
+  - first:
+      74: 2299126593371694848
+    second: root.002|root|pick-up|Animation Base Layer
+  - first:
+      74: -7036199159087904564
+    second: root.002|root|sit|Animation Base Layer
+  - first:
+      74: 8431455622869510573
+    second: root.002|root|sprint|Animation Base Layer
+  - first:
+      74: 3463635733860454206
+    second: root.002|root|static|Animation Base Layer
+  - first:
+      74: -8596381540675287886
+    second: root.002|root|static|Animation Base Layer.001
+  - first:
+      74: 650111050654455966
+    second: root.002|root|static|Animation Base Layer.002
+  - first:
+      74: 8210985232959266884
+    second: root.002|root|walk|Animation Base Layer
+  - first:
+      74: -3799306881230283022
+    second: root.002|root|wheelchair-look-left|Animation Base Layer
+  - first:
+      74: -5258636257164540356
+    second: root.002|root|wheelchair-look-right|Animation Base Layer
+  - first:
+      74: 5300133857250478949
+    second: root.002|root|wheelchair-move-back|Animation Base Layer
+  - first:
+      74: 4406124953568207872
+    second: root.002|root|wheelchair-move-forward|Animation Base Layer
+  - first:
+      74: 7536580628046466714
+    second: root.002|root|wheelchair-move-left|Animation Base Layer
+  - first:
+      74: -4285830558529232944
+    second: root.002|root|wheelchair-move-right|Animation Base Layer
+  - first:
+      74: -3936536351763834802
+    second: root.002|root|wheelchair-sit|Animation Base Layer
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: colormap
+    second: {fileID: -6538903991835684241, guid: 16059be34ac96e141b7a22ed6bd1e8f1, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head
+    second: {fileID: 2100000, guid: 85f42cfe6bf410148a1fbd9972a00c8c, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
