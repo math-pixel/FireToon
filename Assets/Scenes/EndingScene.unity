@@ -226,6 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1c5582732a42f46b5a0e01f17ecb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReplayButton: {fileID: 1888071976}
+  ButtonEndPosition: {x: -45, y: 371, z: 0}
 --- !u!4 &59252313
 Transform:
   m_ObjectHideFlags: 0
@@ -655,7 +657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rejouer
+  m_text: Replay
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -682,13 +684,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 24.07
+  m_fontSizeBase: 24.07
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2718,7 +2720,7 @@ RectTransform:
   m_GameObject: {fileID: 1888071975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7691, y: 1.7691, z: 1.7691}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 387496791}
@@ -2727,7 +2729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 545, y: 262}
+  m_AnchoredPosition: {x: -45, y: 1255}
   m_SizeDelta: {x: 160, y: 41.8392}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &1888071977
@@ -2806,8 +2808,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 553d1401e66e74b69867582591fcdb1b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/MenuManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/EndingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/EndingManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsIcons/IconButton_Large_Blank_Rounded.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsIcons/IconButton_Large_Blank_Rounded.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsIcons/IconButton_Large_Blue_Rounded.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsIcons/IconButton_Large_Blue_Rounded.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsText/ButtonText_Blank_TextField.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsText/ButtonText_Blank_TextField.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsText/ButtonText_Large_Blank_Square.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI-GUI Assets/Basic_GUI_Bundle/ButtonsText/ButtonText_Large_Blank_Square.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,7 @@
       <workItem from="1749761235174" duration="2681000" />
       <workItem from="1749820277814" duration="2294000" />
       <workItem from="1749844143608" duration="4005000" />
-      <workItem from="1749896493019" duration="18544000" />
+      <workItem from="1749896493019" duration="20154000" />
     </task>
     <servers />
   </component>
