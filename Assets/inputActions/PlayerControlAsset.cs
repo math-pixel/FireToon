@@ -44,6 +44,15 @@ public partial class @PlayerControlAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpdateSkin"",
+                    ""type"": ""Button"",
+                    ""id"": ""685ed55b-c5f3-467e-b55e-e101055cc80a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -178,6 +187,28 @@ public partial class @PlayerControlAsset : IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75ce90c9-729e-4cdf-958b-37cb24426898"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard"",
+                    ""action"": ""UpdateSkin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""998c36c0-a935-4219-a25c-f77c8dd36d89"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""UpdateSkin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -211,6 +242,7 @@ public partial class @PlayerControlAsset : IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
+        m_Gameplay_UpdateSkin = m_Gameplay.FindAction("UpdateSkin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -272,12 +304,14 @@ public partial class @PlayerControlAsset : IInputActionCollection2, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Fire;
+    private readonly InputAction m_Gameplay_UpdateSkin;
     public struct GameplayActions
     {
         private @PlayerControlAsset m_Wrapper;
         public GameplayActions(@PlayerControlAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
+        public InputAction @UpdateSkin => m_Wrapper.m_Gameplay_UpdateSkin;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -293,6 +327,9 @@ public partial class @PlayerControlAsset : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
+                @UpdateSkin.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUpdateSkin;
+                @UpdateSkin.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUpdateSkin;
+                @UpdateSkin.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUpdateSkin;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -303,6 +340,9 @@ public partial class @PlayerControlAsset : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @UpdateSkin.started += instance.OnUpdateSkin;
+                @UpdateSkin.performed += instance.OnUpdateSkin;
+                @UpdateSkin.canceled += instance.OnUpdateSkin;
             }
         }
     }
@@ -329,5 +369,6 @@ public partial class @PlayerControlAsset : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnUpdateSkin(InputAction.CallbackContext context);
     }
 }

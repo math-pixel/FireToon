@@ -18,17 +18,16 @@ public class SkinManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+    public void nextSkin()
+    {
+        currentSkin++;
+        if (currentSkin > SkinList.Count - 1)
         {
-            currentSkin++;
-            if (currentSkin > SkinList.Count - 1)
-            {
-                currentSkin = 0;
-            }
-            ChangeSkin(currentSkin);
+            currentSkin = 0;
         }
-        
+        ChangeSkin(currentSkin);
     }
 
     public void ChangeSkin(int skinId)

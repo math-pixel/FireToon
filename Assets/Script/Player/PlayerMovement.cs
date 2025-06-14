@@ -124,6 +124,12 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    public void OnUpdateSkin(InputValue value)
+    {
+        Debug.Log("Update Skin : " + value.isPressed);
+        gameObject.GetComponent<SkinManager>().nextSkin();
+    }
+
     public void removeGun()
     {
         gunMesh.SetActive(false);
