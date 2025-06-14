@@ -14,11 +14,11 @@ public class EndingManager : MonoBehaviour
     void Start()
     {
         ReplayButton.DOAnchorPos(ButtonEndPosition, 2f)
-            .SetEase(Ease.OutElastic)
+            .SetEase(Ease.OutBack)
             .SetDelay(2f)
             .OnComplete(() =>
             {
-                ReplayButton.DOScale(1.5f, 5f)
+                ReplayButton.DOScale(1.2f, 5f)
                     .SetLoops(-1, LoopType.Yoyo);
             });
     }
