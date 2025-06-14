@@ -34,7 +34,7 @@ public class LifePlayer : MonoBehaviour
         gameObject.GetComponent<PlayerMovement>().animator.SetTrigger("die");
         yield return new WaitForSeconds(0.5f);
         GameManager.Instance.GameOver();
-        Destroy(gameObject);
+        // Destroy(gameObject);
     } 
 
     public void IncreaseLife(int amount)

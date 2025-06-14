@@ -12,9 +12,9 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Shoot Settings")]
     public Gun gun;
-
     public float gunBackForce = 100f;
     
+    // Rigidbody
     private Rigidbody rb;
     private Vector2 moveInput;
     private Vector3 moveDirection;

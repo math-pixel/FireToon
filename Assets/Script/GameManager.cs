@@ -1,9 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public enum GameState { Start, Lobby, Menu, Playing, ScoreBoard, Paused, GameOver }
-    public GameState CurrentState { get; private set; }
+    public GameState currentState { get; private set; }
 
     
     void Awake()
@@ -29,17 +24,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void GameOver()
     {
@@ -47,12 +31,18 @@ public class GameManager : MonoBehaviour
         UpdateState(GameState.GameOver);
     }
 
+    public void RestartGame()
+    {
+        PlayerRegistry.Instance.Clear();
+        UpdateState(GameState.Start);
+    }
+
     // ReSharper disable Unity.PerformanceAnalysis
     public void UpdateState(GameState newState)
     {
-        CurrentState = newState;
+        currentState = newState;
 
-        switch (CurrentState)
+        switch (currentState)
         {
             case GameState.Start:
                 ChangeScene("MainMenu");
