@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/PlayerMovement.cs.meta
+guid: 929d3e2aff15fab489fc9ce432aa7936
+========
+guid: f93151ad5ab6c254aa267a3917f8a6c3
+>>>>>>>> Stashed changes:Assets/inputActions/PlayerControlAsset.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

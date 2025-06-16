@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 233084179}
   - component: {fileID: 233084178}
   - component: {fileID: 233084177}
+  - component: {fileID: 233084182}
+  - component: {fileID: 233084183}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -238,6 +240,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &233084182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233084176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+  m_Actions: {fileID: -944628639613478452, guid: d69b5127f0fb0a340a2c01a59a421065, type: 3}
+  m_NotificationBehavior: 1
+=======
+  m_Actions: {fileID: -944628639613478452, guid: 1b513b0bc5abbc147a6efa8a2f2a181a, type: 3}
+  m_NotificationBehavior: 0
+>>>>>>> Stashed changes
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+<<<<<<< Updated upstream
+  m_DefaultControlScheme: Keyboard
+=======
+  m_DefaultControlScheme: keyboard
+>>>>>>> Stashed changes
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &233084183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233084176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+<<<<<<< Updated upstream
+  m_Script: {fileID: 11500000, guid: 4905aff6b2fc8be438716c991b906f4b, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 07da9db69c09eeb4da472523b21b9283, type: 3}
+>>>>>>> Stashed changes
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+  acceleration: 20
+  drag: 4
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,14 +468,19 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
+<<<<<<< Updated upstream
+  m_LocalRotation: {x: 0.100671045, y: -0.8884444, z: 0.23441175, w: 0.38155344}
+  m_LocalPosition: {x: 47.4, y: 31.2, z: 47}
+=======
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -5, y: 11.2, z: -17.1}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 29.561, y: -133.517, z: 0}
 --- !u!1 &1903305560
 GameObject:
   m_ObjectHideFlags: 0
