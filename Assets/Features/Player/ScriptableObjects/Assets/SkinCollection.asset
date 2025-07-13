@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: SkinCollection
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 2208432205092794596, guid: d612d44d9c5ef354aa04e533f76d1571, type: 3}
-  - {fileID: 7957208370248474225, guid: f36da4e4aea52ff42880db32333419db, type: 3}
-  - {fileID: 2187275221387248035, guid: 569e7067c1d45b7408a51b3b26ead028, type: 3}
+  - {fileID: 2208432205092794596, guid: 4337620f33959344db230f3c0698ea79, type: 3}

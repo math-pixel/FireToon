@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de98c51fcdb94b10ab5d44be2e041e8a, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  acceleration: 20
+  moveSpeed: 4
+  acceleration: 10
   drag: 4
   rotationSpeedLerp: 20
   gunBackForce: 100

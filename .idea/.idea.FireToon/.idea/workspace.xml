@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="" />
+    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/ScriptableObjects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/ScriptableObjects/ZoneValidationConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/ScriptableObjects/ZoneValidationConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/Scripts/ValidationZone.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/Scripts/ValidationZone.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/Scripts/ValidationZoneUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Features/Lobby/Scripts/ValidationZoneUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/Prefabs/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/Prefabs/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/Prefabs/Skins/character-JACK.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/Prefabs/Skins/character-JACK.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/PlayerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/PlayerConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/SkinCollection.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/SkinCollection.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/Scripts/PlayerRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/Player/Scripts/PlayerRegistry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/UI/Scripts/LobbyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/Lobby/Scripts/LobbyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/UI/Scripts/LobbyManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/Lobby/Scripts/LobbyManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,11 +37,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Features/Core/ScriptableObjects/SceneTransitionConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Features/Lobby/ScriptableObjects/ZoneValidationConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Features/Spawning/Scripts/SpawnerPlayers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Features/UI/ScriptableObjects/TimerConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Features/UI/Scripts/EndingManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Assets/Scenes/LobbyScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Assets/Scenes/MainMenu.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@7fe8299111a7/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@7fe8299111a7/InputSystem/Plugins/PlayerInput/PlayerInputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
@@ -123,7 +148,7 @@
       <workItem from="1749820277814" duration="2294000" />
       <workItem from="1749844143608" duration="4005000" />
       <workItem from="1749896493019" duration="22239000" />
-      <workItem from="1752399302594" duration="9370000" />
+      <workItem from="1752399302594" duration="13377000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: all files and folders">
       <option name="closed" value="true" />

@@ -28,7 +28,7 @@ public class PlayerRegistry : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // ⭐ Persiste à travers les scènes
+        DontDestroyOnLoad(gameObject);
         
         // Initialize with config values
         if (gameConfig != null)
