@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/PlayerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/PlayerConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
-    </list>
+    <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +18,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Features/Spawning/Scripts/SpawnerPlayers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Features/UI/ScriptableObjects/TimerConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Features/UI/Scripts/EndingManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Assets/Scenes/LobbyScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Assets/Scenes/MainMenu.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
@@ -126,7 +123,7 @@
       <workItem from="1749820277814" duration="2294000" />
       <workItem from="1749844143608" duration="4005000" />
       <workItem from="1749896493019" duration="22239000" />
-      <workItem from="1752399302594" duration="9063000" />
+      <workItem from="1752399302594" duration="9370000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: all files and folders">
       <option name="closed" value="true" />
@@ -152,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752407332433</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat:  add mmodular image">
+      <option name="closed" value="true" />
+      <created>1752413620754</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1752413620754</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +187,8 @@
     <MESSAGE value="refactor: all files and folders" />
     <MESSAGE value="fix:  main menu start game" />
     <MESSAGE value="refactor: files" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: files" />
+    <MESSAGE value="feat:  add mmodular image" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:  add mmodular image" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
