@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf58531d-e9d9-45c4-8b32-b8d6a259c8fc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FireToon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Features/UI/Scripts/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/UI/Scripts/MenuManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/PlayerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/Assets/PlayerConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +19,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Features/Core/ScriptableObjects/SceneTransitionConfig.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Features/Player/ScriptableObjects/TimerConfig.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Features/Player/Scripts/EndingManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Features/Player/Scripts/SpawnerPlayers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Features/Spawning/Scripts/SpawnerPlayers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Features/UI/ScriptableObjects/TimerConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Features/UI/Scripts/EndingManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Assets/Scenes/MainMenu.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/fichiers/personnel/projets/programmation/unity/FireToon/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -123,7 +126,7 @@
       <workItem from="1749820277814" duration="2294000" />
       <workItem from="1749844143608" duration="4005000" />
       <workItem from="1749896493019" duration="22239000" />
-      <workItem from="1752399302594" duration="7040000" />
+      <workItem from="1752399302594" duration="9063000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: all files and folders">
       <option name="closed" value="true" />
@@ -133,7 +136,23 @@
       <option name="project" value="LOCAL" />
       <updated>1752406803516</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix:  main menu start game">
+      <option name="closed" value="true" />
+      <created>1752407289371</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1752407289371</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor: files">
+      <option name="closed" value="true" />
+      <created>1752407332433</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1752407332433</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +180,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="refactor: all files and folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: all files and folders" />
+    <MESSAGE value="fix:  main menu start game" />
+    <MESSAGE value="refactor: files" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

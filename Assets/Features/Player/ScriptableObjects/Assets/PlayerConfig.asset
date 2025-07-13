@@ -15,6 +15,6 @@ MonoBehaviour:
   moveSpeed: 7
   acceleration: 20
   drag: 4
-  rotationSpeedLerp: 1
+  rotationSpeedLerp: 20
   gunBackForce: 100
   startingLifes: 3

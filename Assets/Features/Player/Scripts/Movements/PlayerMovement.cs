@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private bool fire = false;
     private bool walkingAnimation = false;
     private bool fireStateAnimation = false;
-    
+    private Camera mainCamera;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        mainCamera = Camera.main;
         canMove = true;
         
         if (centerOfMass != null)
@@ -47,8 +49,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canMove)
         {
-            Vector3 forward = Camera.main.transform.forward * moveInput.y;
-            Vector3 right = Camera.main.transform.right * moveInput.x;
+            Vector3 forward = mainCamera.transform.forward * moveInput.y;
+            Vector3 right = mainCamera.transform.right * moveInput.x;
             moveDirection = forward.normalized + right.normalized;
             moveDirection.y = 0f;
         }
