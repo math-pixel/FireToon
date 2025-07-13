@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de98c51fcdb94b10ab5d44be2e041e8a, type: 3}
-  m_Name: PlayerConfig
+  m_Script: {fileID: 11500000, guid: 25a201722aeb462587ebf8cc4eb48539, type: 3}
+  m_Name: Walk
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  acceleration: 10
-  drag: 4
-  rotationSpeedLerp: 20
-  gunBackForce: 20
-  startingLifes: 3
+  animationName: Walk
+  transitionDuration: 0.25

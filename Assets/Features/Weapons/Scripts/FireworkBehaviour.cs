@@ -7,49 +7,86 @@ public class FireworkBehaviour : MonoBehaviour
     public ProjectileConfig projectileConfig;
     
     [Header("Fallback Settings")]
-    public float fallbackSpeed = 1f;
+    public float fallbackSpeed = 10f; // ⭐ Augmenté la valeur par défaut
     public int fallbackMaxBounces = 3;
     public VFX_Firework explosion;
+    
+    [Header("Debug")]
+    public bool enableDebugLogs = false;
     
     private GameObject fireworkSender;
     private int currentBounce = 0;
     private Rigidbody rb;
     private Vector3 lastVelocity;
-    private Vector3 directionBullet;
     private float startTime;
     private AudioSource audioSource;
+    private bool isDestroyed = false; // ⭐ Protection contre double destruction
     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
-        directionBullet = transform.forward;
         startTime = Time.time;
+        
+        if (enableDebugLogs) Debug.Log($"Firework created: {gameObject.name}");
+        
+        // ⭐ CORRECTION : Donner une vélocité initiale immédiatement
+        InitializeMovement();
         
         // Start lifetime countdown
         if (projectileConfig != null && projectileConfig.lifetime > 0)
         {
             StartCoroutine(LifetimeCountdown());
         }
+        else
+        {
+            // Fallback lifetime si pas de config
+            StartCoroutine(LifetimeCountdown(10f));
+        }
     }
     
-    private IEnumerator LifetimeCountdown()
+    private void InitializeMovement()
     {
-        yield return new WaitForSeconds(projectileConfig.lifetime);
-        DestroyProjectile();
+        float speed = projectileConfig != null ? projectileConfig.speed : fallbackSpeed;
+        rb.linearVelocity = transform.forward * speed; // ⭐ Vélocité initiale
+        lastVelocity = rb.linearVelocity;
+        
+        if (enableDebugLogs) Debug.Log($"Initial velocity set: {rb.linearVelocity}");
+    }
+    
+    private IEnumerator LifetimeCountdown(float? customLifetime = null)
+    {
+        float lifetime = customLifetime ?? projectileConfig.lifetime;
+        yield return new WaitForSeconds(lifetime);
+        
+        if (!isDestroyed)
+        {
+            if (enableDebugLogs) Debug.Log("Firework lifetime expired");
+            DestroyProjectile();
+        }
     }
 
-    void LateUpdate()
+    void FixedUpdate() // ⭐ Changé de LateUpdate à FixedUpdate
     {
-        MoveProjectile();
+        if (isDestroyed) return;
+        
+        UpdateMovement();
         CheckWorldBounds();
     }
     
-    private void MoveProjectile()
+    private void UpdateMovement()
     {
-        float speed = projectileConfig != null ? projectileConfig.speed : fallbackSpeed;
-        rb.linearVelocity = transform.forward * speed * Time.deltaTime;
+        // ⭐ CORRECTION : Ne pas modifier la vélocité en continu
+        // La vélocité est définie une fois au Start et modifiée seulement lors des rebonds
         lastVelocity = rb.linearVelocity;
+        
+        // Optionnel : Appliquer une légère gravité ou résistance de l'air
+        if (projectileConfig != null && projectileConfig.speed > 0)
+        {
+            // Maintenir la vitesse constante (ignorer la gravité)
+            Vector3 currentDirection = rb.linearVelocity.normalized;
+            rb.linearVelocity = currentDirection * projectileConfig.speed;
+        }
     }
     
     private void CheckWorldBounds()
@@ -58,6 +95,7 @@ public class FireworkBehaviour : MonoBehaviour
         
         if (Mathf.Abs(transform.position.z) > bounds.y || Mathf.Abs(transform.position.x) > bounds.x)
         {
+            if (enableDebugLogs) Debug.Log("Firework out of bounds");
             DestroyProjectile();
         }
     }
@@ -65,16 +103,19 @@ public class FireworkBehaviour : MonoBehaviour
     public void SetFireworkSender(GameObject sender)
     {
         fireworkSender = sender;
+        if (enableDebugLogs) Debug.Log($"Firework sender set: {sender?.name}");
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (isDestroyed) return; // ⭐ Protection
+        
         GameObject hitObject = collision.gameObject;
+        
+        if (enableDebugLogs) Debug.Log($"Firework collision with: {hitObject.name}");
         
         // Ignore collision with sender and other projectiles
         if (IsIgnoredCollision(hitObject)) return;
-        
-        Debug.Log($"Firework hit {hitObject.name}");
         
         // Handle player hit
         if (hitObject.CompareTag("Player"))
@@ -89,18 +130,36 @@ public class FireworkBehaviour : MonoBehaviour
     
     private bool IsIgnoredCollision(GameObject hitObject)
     {
-        if (fireworkSender != null && fireworkSender.name == hitObject.name)
+        // ⭐ CORRECTION : Vérifications plus strictes
+        if (fireworkSender != null && 
+            (fireworkSender == hitObject || fireworkSender.name == hitObject.name))
+        {
+            if (enableDebugLogs) Debug.Log("Ignored collision with sender");
             return true;
+        }
             
-        if (hitObject.name == gameObject.name)
+        if (hitObject == gameObject)
+        {
+            if (enableDebugLogs) Debug.Log("Ignored self collision");
             return true;
+        }
+        
+        // ⭐ Ignorer les autres projectiles
+        if (hitObject.GetComponent<FireworkBehaviour>() != null)
+        {
+            if (enableDebugLogs) Debug.Log("Ignored collision with other projectile");
+            return true;
+        }
             
         // Check if target layer is valid
         if (projectileConfig != null)
         {
             int hitLayer = 1 << hitObject.layer;
             if ((projectileConfig.targetLayers.value & hitLayer) == 0)
+            {
+                if (enableDebugLogs) Debug.Log("Ignored collision - wrong layer");
                 return true;
+            }
         }
         
         return false;
@@ -108,6 +167,8 @@ public class FireworkBehaviour : MonoBehaviour
     
     private void HandlePlayerHit(GameObject player)
     {
+        if (enableDebugLogs) Debug.Log($"Player hit: {player.name}");
+        
         LifePlayer lifePlayer = player.GetComponent<LifePlayer>();
         if (lifePlayer != null)
         {
@@ -131,80 +192,87 @@ public class FireworkBehaviour : MonoBehaviour
             bool destroyOnMaxBounces = projectileConfig != null ? projectileConfig.destroyOnMaxBounces : true;
             if (destroyOnMaxBounces)
             {
+                if (enableDebugLogs) Debug.Log("Max bounces reached");
                 DestroyProjectile();
                 return;
             }
         }
         
         // Calculate bounce direction
-        float currentSpeed = lastVelocity.magnitude;
         Vector3 bounceDirection = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
         
         // Apply speed multiplier
+        float currentSpeed = lastVelocity.magnitude;
         float speedMultiplier = projectileConfig != null ? projectileConfig.bounceSpeedMultiplier : 0.8f;
         currentSpeed *= speedMultiplier;
         
-        directionBullet = bounceDirection * currentSpeed * Time.deltaTime;
+        // ⭐ CORRECTION : Appliquer la nouvelle vélocité correctement
+        rb.linearVelocity = bounceDirection * currentSpeed;
         transform.rotation = Quaternion.LookRotation(bounceDirection);
         
         currentBounce++;
+        
+        if (enableDebugLogs) Debug.Log($"Bounce {currentBounce}/{maxBounces}, new velocity: {rb.linearVelocity}");
     }
     
     private void DestroyProjectile()
     {
+        if (isDestroyed) return; // ⭐ Protection contre double destruction
+        
+        isDestroyed = true;
+        
+        if (enableDebugLogs) Debug.Log("Destroying projectile");
+        
         PlayExplosionEffects();
+        
+        // ⭐ Destruction immédiate pour éviter les problèmes
         Destroy(gameObject);
     }
     
     private void PlayExplosionEffects()
     {
+        // ⭐ CORRECTION : Créer les effets AVANT la destruction
+        Vector3 explosionPosition = transform.position;
+        Quaternion explosionRotation = transform.rotation;
+        
         // Play VFX explosion
         if (explosion != null)
         {
+            // ⭐ Détacher l'explosion du projectile
+            explosion.transform.parent = null;
             explosion.play();
         }
         
         // Play explosion effect from config
         if (projectileConfig != null && projectileConfig.explosionEffect != null)
         {
-            GameObject effect = Instantiate(projectileConfig.explosionEffect, transform.position, transform.rotation);
-            Destroy(effect, 5f); // Clean up after 5 seconds
+            GameObject effect = Instantiate(projectileConfig.explosionEffect, explosionPosition, explosionRotation);
+            Destroy(effect, 5f);
         }
         
         // Play explosion sound
-        if (projectileConfig != null && projectileConfig.explosionSound != null && audioSource != null)
+        if (projectileConfig != null && projectileConfig.explosionSound != null)
         {
-            audioSource.PlayOneShot(projectileConfig.explosionSound);
+            // ⭐ Jouer le son via AudioSource.PlayClipAtPoint pour éviter la destruction
+            AudioSource.PlayClipAtPoint(projectileConfig.explosionSound, explosionPosition);
         }
     }
     
-    public void SetCustomSpeed(float speed)
+    // ⭐ Méthodes de debug
+    [ContextMenu("Debug Info")]
+    public void DebugInfo()
     {
-        if (projectileConfig != null)
-        {
-            // Create a runtime copy to avoid modifying the original ScriptableObject
-            projectileConfig = Instantiate(projectileConfig);
-            projectileConfig.speed = speed;
-        }
+        Debug.Log($"=== FIREWORK DEBUG ===");
+        Debug.Log($"Position: {transform.position}");
+        Debug.Log($"Velocity: {rb.linearVelocity}");
+        Debug.Log($"Speed: {rb.linearVelocity.magnitude}");
+        Debug.Log($"Bounces: {currentBounce}");
+        Debug.Log($"Time alive: {Time.time - startTime}");
+        Debug.Log($"Sender: {fireworkSender?.name ?? "None"}");
     }
     
-    public void SetCustomDamage(int damage)
+    void OnDestroy()
     {
-        if (projectileConfig != null)
-        {
-            if (projectileConfig.name.Contains("(Clone)") == false)
-                projectileConfig = Instantiate(projectileConfig);
-            projectileConfig.damage = damage;
-        }
-    }
-    
-    public int GetCurrentBounces()
-    {
-        return currentBounce;
-    }
-    
-    public float GetTimeAlive()
-    {
-        return Time.time - startTime;
+        if (enableDebugLogs) Debug.Log($"Firework destroyed: {gameObject.name}");
     }
 }
