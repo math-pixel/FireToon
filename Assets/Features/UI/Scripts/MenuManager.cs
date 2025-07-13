@@ -58,7 +58,11 @@ public class MenuManager : MonoBehaviour
     // Public methods for UI Button events
     public void OnPlayButtonClick()
     {
+        Debug.Log("=== BUTTON CLICK DEBUG ===");
         Debug.Log("OnPlayButtonClick() called!");
+        Debug.Log($"onPlayButtonClicked is null: {onPlayButtonClicked == null}");
+        Debug.Log($"onPlayButtonClicked listener count: {onPlayButtonClicked?.GetPersistentEventCount()}");
+    
         onPlayButtonClicked?.Invoke();
     }
     
@@ -69,19 +73,23 @@ public class MenuManager : MonoBehaviour
     }
     
     // Default callback implementations
-    private void StartGame()
+    public void StartGame()
     {
+        Debug.Log("=== START GAME DEBUG ===");
         Debug.Log("StartGame() called!");
-        
+        Debug.Log($"GameManager.Instance exists: {GameManager.Instance != null}");
+        Debug.Log($"CustomSceneManager.Instance exists: {CustomSceneManager.Instance != null}");
+    
         // Stop current animations
         if (uiAnimator != null)
         {
             uiAnimator.StopAllAnimations();
         }
-        
+    
         // Transition to lobby
         if (GameManager.Instance != null)
         {
+            Debug.Log($"Current GameManager state: {GameManager.Instance.currentState}");
             Debug.Log("Requesting state change to Lobby");
             GameManager.Instance.RequestStateChange(GameManager.GameState.Lobby);
         }
