@@ -1,43 +1,102 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Configuration")]
-    public PlayerConfig playerConfig;
+    [SerializeField] private PlayerConfig playerConfig;
     
     [Header("References")]
-    public Gun gun;
-    public GameObject gunMesh;
-    public GameObject centerOfMass;
-    public Animator animator;
+    [SerializeField] private Gun gun;
+    [SerializeField] private GameObject gunMesh;
+    [SerializeField] private GameObject centerOfMass;
+    [SerializeField] public Animator animator;
 
     [Header("Animations")]
-    public AnimationClipData idleAnim;
-    public AnimationClipData walkAnim;
-    public AnimationClipData shootAnim;
-    public AnimationClipData dieAnim;
-    public AnimationClipData emoteYesAnim;
-    public AnimationClipData emoteNoAnim;
+    [SerializeField] private AnimationClipData idleAnim;
+    [SerializeField] private AnimationClipData walkAnim;
+    [SerializeField] private AnimationClipData shootAnim;
+    [SerializeField] private AnimationClipData dieAnim;
+    [SerializeField] private AnimationClipData emoteYesAnim;
+    [SerializeField] private AnimationClipData emoteNoAnim;
 
-    public bool canMove = true;
+    [Header("Movement Settings")]
+    [SerializeField] private bool useVelocityBasedRotation = true;
+    [SerializeField] private float minVelocityForRotation = 0.1f;
 
+    [Header("Events")]
+    public UnityEvent OnShoot;
+    public UnityEvent OnStartMoving;
+    public UnityEvent OnStopMoving;
+
+    // Public properties
+    public bool CanMove { get; set; } = true;
+    public bool IsFireHeld { get; private set; }
+    public bool IsMoving { get; private set; }
+
+    // Private fields
     private Rigidbody rb;
+    private Camera mainCamera;
+    private SimpleAnimationController animController;
+    
+    // Input
     private Vector2 moveInput;
     private Vector3 moveDirection;
     private Vector3 lastMoveDirection;
     
-    // ⭐ CORRECTION : Séparer les états de tir
-    private bool firePressed = false; // Pour le tir unique
-    private bool fireHeld = false;    // Pour savoir si le bouton est maintenu
-    private bool walkingAnimation = false;
-    private bool fireStateAnimation = false;
+    // Fire state
+    private bool firePressed;
+    private bool fireHeld;
     
-    private Camera mainCamera;
-    private SimpleAnimationController animController;
+    // Animation state
+    private bool isWalkingAnimation;
+    private bool isFireAnimation;
+    
+    // Cached values
+    private float moveSpeed;
+    private float acceleration;
+    private float rotationSpeed;
+    private float gunBackForce;
+
+    #region Unity Lifecycle
 
     private void Awake()
+    {
+        InitializeComponents();
+        CacheConfigValues();
+    }
+
+    private void Start()
+    {
+        InitializePhysics();
+        ValidateReferences();
+    }
+
+    private void Update()
+    {
+        if (!CanMove) return;
+
+        UpdateMovementDirection();
+        UpdateRotation();
+        HandleShooting();
+        UpdateAnimations();
+        ResetFrameState();
+    }
+
+    private void FixedUpdate()
+    {
+        if (!CanMove || playerConfig == null) return;
+        
+        ApplyMovement();
+    }
+
+    #endregion
+
+    #region Initialization
+
+    private void InitializeComponents()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -46,65 +105,151 @@ public class PlayerMovement : MonoBehaviour
             animator = GetComponentInChildren<Animator>();
 
         animController = GetComponentInChildren<SimpleAnimationController>();
+        mainCamera = Camera.main;
     }
 
-    private void Start()
+    private void InitializePhysics()
     {
-        mainCamera = Camera.main;
-        canMove = true;
-
         if (centerOfMass != null)
-            rb.centerOfMass = centerOfMass.transform.position;
+            rb.centerOfMass = centerOfMass.transform.localPosition;
 
         if (playerConfig != null)
             rb.linearDamping = playerConfig.drag;
     }
 
-    private void Update()
+    private void CacheConfigValues()
     {
-        if (canMove)
+        if (playerConfig != null)
         {
-            Vector3 forward = mainCamera.transform.forward * moveInput.y;
-            Vector3 right = mainCamera.transform.right * moveInput.x;
-            moveDirection = forward.normalized + right.normalized;
-            moveDirection.y = 0f;
+            moveSpeed = playerConfig.moveSpeed;
+            acceleration = playerConfig.acceleration;
+            rotationSpeed = playerConfig.rotationSpeedLerp;
+            gunBackForce = playerConfig.gunBackForce;
+        }
+        else
+        {
+            // Valeurs par défaut si pas de config
+            moveSpeed = 5f;
+            acceleration = 10f;
+            rotationSpeed = 5f;
+            gunBackForce = 100f;
+        }
+    }
+
+    private void ValidateReferences()
+    {
+        if (mainCamera == null)
+        {
+            Debug.LogWarning($"[{name}] Main Camera not found. Movement will not work properly.");
         }
 
-        if (moveDirection != Vector3.zero)
+        if (playerConfig == null)
+        {
+            Debug.LogWarning($"[{name}] PlayerConfig is missing. Using default values.");
+        }
+
+        if (gun == null)
+        {
+            Debug.LogWarning($"[{name}] Gun reference is missing. Shooting will not work.");
+        }
+    }
+
+    #endregion
+
+    #region Movement
+
+    private void UpdateMovementDirection()
+    {
+        if (mainCamera == null) return;
+
+        Vector3 forward = mainCamera.transform.forward * moveInput.y;
+        Vector3 right = mainCamera.transform.right * moveInput.x;
+        
+        // ✅ CORRECTION : Normaliser correctement pour éviter la vitesse diagonale supérieure
+        moveDirection = (forward + right).normalized;
+        moveDirection.y = 0f;
+
+        // Mettre à jour la dernière direction de mouvement
+        if (moveDirection.magnitude > 0.01f)
         {
             lastMoveDirection = moveDirection;
         }
 
-        if (rb.linearVelocity.magnitude > 0.1f)
+        // Détecter le changement d'état de mouvement
+        bool wasMoving = IsMoving;
+        IsMoving = moveDirection.magnitude > 0.01f;
+
+        if (IsMoving && !wasMoving)
+            OnStartMoving?.Invoke();
+        else if (!IsMoving && wasMoving)
+            OnStopMoving?.Invoke();
+    }
+
+    private void UpdateRotation()
+    {
+        if (!useVelocityBasedRotation) return;
+
+        if (rb.linearVelocity.magnitude > minVelocityForRotation)
         {
-            float rotationSpeed = playerConfig != null ? playerConfig.rotationSpeedLerp : 1f;
             Quaternion targetRotation = Quaternion.LookRotation(rb.linearVelocity.normalized);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
-
-        // ⭐ CORRECTION : Tirer seulement quand firePressed est true (une seule fois)
-        if (firePressed && canMove)
-        {
-            gun.Shoot();
-            float backForce = playerConfig != null ? playerConfig.gunBackForce : 100f;
-            rb.AddForce(-lastMoveDirection * backForce, ForceMode.Impulse);
-            firePressed = false; // ⭐ Reset immédiatement après le tir
-        }
-
-        HandleAnimations();
-        ResetState();
     }
 
-    private void HandleAnimations()
+    private void ApplyMovement()
+    {
+        Vector3 targetVelocity = moveDirection * moveSpeed;
+        Vector3 velocityChange = targetVelocity - rb.linearVelocity;
+        velocityChange.y = 0f;
+
+        rb.AddForce(velocityChange * acceleration, ForceMode.Acceleration);
+    }
+
+    #endregion
+
+    #region Shooting
+
+    private void HandleShooting()
+    {
+        if (firePressed && gun != null)
+        {
+            gun.Shoot();
+            ApplyGunRecoil();
+            OnShoot?.Invoke();
+            firePressed = false; // Reset immédiatement après le tir
+        }
+    }
+
+    private void ApplyGunRecoil()
+    {
+        if (lastMoveDirection.magnitude > 0.01f)
+        {
+            rb.AddForce(-lastMoveDirection * gunBackForce, ForceMode.Impulse);
+        }
+    }
+
+    public void ForceFire()
+    {
+        if (CanMove)
+        {
+            firePressed = true;
+        }
+    }
+
+    #endregion
+
+    #region Animations
+
+    private void UpdateAnimations()
     {
         if (animController == null) return;
 
         // Priorité : Fire > Walk > Idle
-        if (fireStateAnimation && shootAnim != null)
+        if (isFireAnimation && shootAnim != null)
         {
             animController.Play(shootAnim);
         }
-        else if (walkingAnimation && walkAnim != null)
+        else if (isWalkingAnimation && walkAnim != null)
         {
             animController.Play(walkAnim);
         }
@@ -114,46 +259,34 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ResetState()
+    private void ResetFrameState()
     {
-        // ⭐ CORRECTION : Ne pas reset firePressed ici !
-        // firePressed est reset dans Update après le tir
-        fireStateAnimation = false;
+        isFireAnimation = false;
     }
 
-    private void FixedUpdate()
-    {
-        if (playerConfig == null) return;
+    #endregion
 
-        Vector3 targetVelocity = moveDirection * playerConfig.moveSpeed;
-        Vector3 velocityChange = (targetVelocity - rb.linearVelocity);
-        velocityChange.y = 0f;
-
-        rb.AddForce(velocityChange * playerConfig.acceleration, ForceMode.Acceleration);
-    }
+    #region Input Handlers
 
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        walkingAnimation = moveInput.x != 0 || moveInput.y != 0;
+        isWalkingAnimation = moveInput.magnitude > 0.01f;
     }
 
     public void OnFire(InputValue value)
     {
-        // ⭐ CORRECTION : Gérer press et release séparément
         if (value.isPressed)
         {
-            // Bouton vient d'être pressé
             firePressed = true;
             fireHeld = true;
-            fireStateAnimation = true;
-            Debug.Log("Fire button pressed!"); // Debug
+            IsFireHeld = true;
+            isFireAnimation = true;
         }
         else
         {
-            // Bouton vient d'être relâché
             fireHeld = false;
-            Debug.Log("Fire button released!"); // Debug
+            IsFireHeld = false;
         }
     }
 
@@ -166,6 +299,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Public Methods
+
     public void RemoveGun()
     {
         if (gunMesh != null)
@@ -175,24 +312,70 @@ public class PlayerMovement : MonoBehaviour
     public void SetAnimator(Animator newAnimator)
     {
         animator = newAnimator;
-        animController = newAnimator != null ? newAnimator.GetComponent<SimpleAnimationController>() : null;
+        animController = newAnimator?.GetComponent<SimpleAnimationController>();
     }
 
-    public bool IsFireHeld()
+    public void SetCanMove(bool canMove)
     {
-        return fireHeld;
-    }
-
-    public bool IsFirePressed()
-    {
-        return firePressed;
-    }
-
-    public void ForceFire()
-    {
-        if (canMove)
+        CanMove = canMove;
+        if (!canMove)
         {
-            firePressed = true;
+            // Arrêter le mouvement immédiatement
+            rb.linearVelocity = Vector3.zero;
+            moveInput = Vector2.zero;
+            isWalkingAnimation = false;
         }
     }
+
+    public void SetRotationMode(bool useVelocityRotation)
+    {
+        useVelocityBasedRotation = useVelocityRotation;
+    }
+
+    /// <summary>
+    /// Force la rotation du joueur vers une direction spécifique
+    /// </summary>
+    public void SetRotation(Vector3 direction)
+    {
+        if (direction.magnitude > 0.01f)
+        {
+            direction.y = 0f;
+            transform.rotation = Quaternion.LookRotation(direction.normalized);
+        }
+    }
+
+    /// <summary>
+    /// Applique une force externe au joueur (ex: explosion, knockback)
+    /// </summary>
+    public void ApplyExternalForce(Vector3 force, ForceMode forceMode = ForceMode.Impulse)
+    {
+        rb.AddForce(force, forceMode);
+    }
+
+    #endregion
+
+    #region Debug
+
+    private void OnDrawGizmosSelected()
+    {
+        if (Application.isPlaying)
+        {
+            // Afficher la direction de mouvement
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(transform.position, moveDirection * 2f);
+            
+            // Afficher la dernière direction de mouvement
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position, lastMoveDirection * 1.5f);
+            
+            // Afficher le centre de masse
+            if (centerOfMass != null)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.TransformPoint(rb.centerOfMass), 0.1f);
+            }
+        }
+    }
+
+    #endregion
 }

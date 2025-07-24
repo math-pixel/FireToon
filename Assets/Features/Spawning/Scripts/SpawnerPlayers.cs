@@ -72,7 +72,7 @@ public class SpawnerPlayers : MonoBehaviour
         // Disable movement if configured
         if (spawnConfig != null && spawnConfig.disableMovementOnScoreboard)
         {
-            playerMovement.canMove = false;
+            playerMovement.CanMove = false;
         }
         
         // Remove gun if configured
