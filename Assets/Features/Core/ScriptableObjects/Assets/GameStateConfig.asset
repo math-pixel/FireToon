@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ae430b5da64725bc7a4dc702b15df7, type: 3}
+  m_Name: GameStateConfig
+  m_EditorClassIdentifier: 
+  sceneMappings:
+  - state: 0
+    sceneName: MainMenu
+    transitionDelay: 0
+    useCustomTransition: 0
+  - state: 1
+    sceneName: LobbyScene
+    transitionDelay: 0
+    useCustomTransition: 0
+  - state: 3
+    sceneName: InGame
+    transitionDelay: 0
+    useCustomTransition: 0
+  - state: 4
+    sceneName: EndingScene
+    transitionDelay: 0
+    useCustomTransition: 0
+  autoTransitionScenes: 1
+  defaultTransitionDelay: 0.5
+  showTransitionEffects: 1
+  autoRestartOnGameOver: 0
+  gameOverDelay: 3
+  skipGameOverState: 0
+  validateSceneNames: 1
+  logStateTransitions: 1

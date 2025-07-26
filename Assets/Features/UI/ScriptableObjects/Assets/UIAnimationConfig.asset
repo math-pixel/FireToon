@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6393ad0ce94061b65fd2e1bdd4553a, type: 3}
+  m_Name: UIAnimationConfig
+  m_EditorClassIdentifier: 
+  animationElements:
+  - elementName: Logo
+    type: 0
+    delay: 0
+    duration: 1
+    ease: 30
+    fromPosition: {x: 0, y: 1000, z: 0}
+    toPosition: {x: 0, y: 150, z: 0}
+    useLocalPosition: 1
+    fromScale: {x: 0, y: 0, z: 0}
+    toScale: {x: 0, y: 0, z: 0}
+    fromRotation: {x: 0, y: 0, z: 0}
+    toRotation: {x: 0, y: 0, z: 0}
+    fromAlpha: 0
+    toAlpha: 0
+    loop: 0
+    loopType: 0
+    loopCount: 0
+    punch: 0
+    punchStrength: {x: 0, y: 0, z: 0}
+    shake: 0
+    shakeStrength: {x: 0, y: 0, z: 0}
+  - elementName: Play
+    type: 5
+    delay: 1
+    duration: 1
+    ease: 30
+    fromPosition: {x: -1000, y: -150, z: 0}
+    toPosition: {x: 0, y: -150, z: 0}
+    useLocalPosition: 1
+    fromScale: {x: 0, y: 0, z: 0}
+    toScale: {x: 0, y: 0, z: 0}
+    fromRotation: {x: 0, y: 0, z: 0}
+    toRotation: {x: 0, y: 0, z: 0}
+    fromAlpha: 0
+    toAlpha: 1
+    loop: 0
+    loopType: 0
+    loopCount: 0
+    punch: 0
+    punchStrength: {x: 0, y: 0, z: 0}
+    shake: 0
+    shakeStrength: {x: 0, y: 0, z: 0}
+  - elementName: Settings
+    type: 5
+    delay: 2
+    duration: 1
+    ease: 30
+    fromPosition: {x: 1000, y: -250, z: 0}
+    toPosition: {x: 0, y: -250, z: 0}
+    useLocalPosition: 1
+    fromScale: {x: 0, y: 0, z: 0}
+    toScale: {x: 0, y: 0, z: 0}
+    fromRotation: {x: 0, y: 0, z: 0}
+    toRotation: {x: 0, y: 0, z: 0}
+    fromAlpha: 0
+    toAlpha: 1
+    loop: 0
+    loopType: 0
+    loopCount: 0
+    punch: 0
+    punchStrength: {x: 0, y: 0, z: 0}
+    shake: 0
+    shakeStrength: {x: 0, y: 0, z: 0}
+  playOnStart: 1
+  autoCleanup: 1
+  globalTimeScale: 1
+  logoFirstScale: {x: 1.2, y: 1.2, z: 1.2}
+  logoSecondScale: {x: 1.1, y: 1.1, z: 1.1}
+  logoFirstDuration: 2
+  logoSecondDuration: 2
+  logoEase: 30
+  buttonAnimationDuration: 2
+  buttonDelayIncrement: 0.2
+  buttonEase: 30
+  replayButtonDuration: 2
+  replayButtonDelay: 2
+  replayButtonScale: {x: 1.2, y: 1.2, z: 1.2}
+  replayScaleDuration: 5
+  replayEase: 27

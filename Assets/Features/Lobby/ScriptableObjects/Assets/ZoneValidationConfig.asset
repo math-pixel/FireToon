@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d146db54b7c4cd4b1d1dfb232e68669, type: 3}
+  m_Name: ZoneValidationConfig
+  m_EditorClassIdentifier: 
+  validationDuration: 3
+  requireAllPlayers: 1
+  minimumPlayersRequired: 1
+  zoneNormalColor: {r: 0, g: 1, b: 0, a: 1}
+  zoneValidatingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  zoneReadyColor: {r: 0, g: 0, b: 1, a: 1}
+  colorTransitionSpeed: 2
+  playerEnterSound: {fileID: 0}
+  playerExitSound: {fileID: 0}
+  validationStartSound: {fileID: 0}
+  validationCompleteSound: {fileID: 0}
+  enableParticles: 0
+  enableScreenShake: 1
+  shakeIntensity: 0.1

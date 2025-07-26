@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e39ad8a83246aa9313f87f1014ea98, type: 3}
+  m_Name: TimerConfig
+  m_EditorClassIdentifier: 
+  defaultDuration: 10
+  useRealTime: 1
+  finishedText: 0
+  updateInterval: 0.1
+  showCountdown: 1
+  countdownFormat: '{0}'
+  showDecimals: 0
+  decimalFormat: '{0:F1}'
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  urgentColor: {r: 1, g: 0, b: 0, a: 1}
+  urgentThreshold: 3
+  animateUrgentText: 1
+  urgentPulseSpeed: 2
