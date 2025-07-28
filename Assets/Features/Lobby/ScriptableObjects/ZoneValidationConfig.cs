@@ -14,12 +14,6 @@ public class ZoneValidationConfig : ScriptableObject
     public Color zoneReadyColor = Color.blue;
     public float colorTransitionSpeed = 2f;
     
-    [Header("Audio Feedback")]
-    public AudioClip playerEnterSound;
-    public AudioClip playerExitSound;
-    public AudioClip validationStartSound;
-    public AudioClip validationCompleteSound;
-    
     [Header("Effects")]
     public bool enableParticles = true;
     public bool enableScreenShake = false;

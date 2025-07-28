@@ -30,7 +30,6 @@ public class PlayerRegistry : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         
-        // Initialize with config values
         if (gameConfig != null)
         {
             playerCount = gameConfig.minPlayers;
@@ -45,7 +44,6 @@ public class PlayerRegistry : MonoBehaviour
         GameObject playerGO = input.gameObject;
         playerGO.name = $"Player {playerNumber}";
         
-        // Use config for positioning
         Vector3 spawnPos = gameConfig != null ? gameConfig.spawnPosition : 
                           (spawner != null ? spawner.transform.position : Vector3.zero);
         playerGO.transform.position = spawnPos;
@@ -80,7 +78,6 @@ public class PlayerRegistry : MonoBehaviour
             playerCount++;
             UpdatePlayerCountText();
             
-            // Notify LobbyManager if it exists
             NotifyLobbyManager();
         }
     }
@@ -93,7 +90,6 @@ public class PlayerRegistry : MonoBehaviour
             playerCount--;
             UpdatePlayerCountText();
             
-            // Notify LobbyManager if it exists
             NotifyLobbyManager();
         }
     }
@@ -106,14 +102,12 @@ public class PlayerRegistry : MonoBehaviour
     
     private void NotifyLobbyManager()
     {
-        // Notify LobbyManager about player count change
         if (GameManager.Instance?.lobbyManager != null)
         {
             GameManager.Instance.lobbyManager.UpdatePlayerCount();
         }
     }
     
-    // Method to update UI references when changing scenes
     public void UpdateUIReferences(GameObject newSpawner, TMP_Text newPlayerCountText)
     {
         spawner = newSpawner;

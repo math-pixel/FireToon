@@ -1046,8 +1046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneConfig: {fileID: 11400000, guid: 3c2e8dc767a0f6845a5b226e379c5528, type: 2}
   zoneRenderer: {fileID: 1178578083}
-  validationParticles: {fileID: 0}
-  audioSource: {fileID: 0}
+  counterText: {fileID: 1034304886}
   onValidationStart:
     m_PersistentCalls:
       m_Calls: []

@@ -9,35 +9,30 @@ public class LobbyManager : MonoBehaviour
     
     [Header("References")]
     public PlayerRegistry playerRegistry;
-    public ValidationZone validationZone; // ⭐ Nouvelle référence
+    public ValidationZone validationZone;
     
     [Header("UI References")]
     public GameObject spawner;
     public TMPro.TMP_Text playerCountText;
     
-    // Supprimer les références Timer car on utilise maintenant la zone
     
     private void Start()
     {
-        // Use assigned reference or find PlayerRegistry
         if (playerRegistry == null)
         {
             playerRegistry = PlayerRegistry.Instance;
         }
         
-        // Update PlayerRegistry UI references for this scene
         if (playerRegistry != null)
         {
             playerRegistry.UpdateUIReferences(spawner, playerCountText);
         }
         
-        // Setup validation zone
         if (validationZone != null)
         {
             validationZone.onValidationComplete.AddListener(OnValidationComplete);
         }
         
-        // Register with GameManager
         if (GameManager.Instance != null)
         {
             GameManager.Instance.lobbyManager = this;
@@ -48,7 +43,6 @@ public class LobbyManager : MonoBehaviour
     private void Update()
     {
         CheckForceStart();
-        // Supprimer CheckPlayersReady() car la zone gère maintenant la validation
     }
     
     private void CheckForceStart()
@@ -104,22 +98,17 @@ public class LobbyManager : MonoBehaviour
         }
     }
     
-    // Called by PlayerRegistry when player count changes
     public void UpdatePlayerCount()
     {
-        // La zone de validation gère maintenant la logique
-        // Optionnel : mettre à jour d'autres UI si nécessaire
     }
     
     void OnDestroy()
     {
-        // Cleanup validation zone events
         if (validationZone != null)
         {
             validationZone.onValidationComplete.RemoveListener(OnValidationComplete);
         }
         
-        // Unregister from GameManager
         if (GameManager.Instance != null && GameManager.Instance.lobbyManager == this)
         {
             GameManager.Instance.lobbyManager = null;

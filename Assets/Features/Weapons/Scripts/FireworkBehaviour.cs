@@ -169,12 +169,12 @@ public class FireworkBehaviour : MonoBehaviour
     {
         if (enableDebugLogs) Debug.Log($"Player hit: {player.name}");
         
-        LifePlayer lifePlayer = player.GetComponent<LifePlayer>();
-        if (lifePlayer != null)
+        // LifePlayer lifePlayer = player.GetComponent<LifePlayer>();
+        /*if (lifePlayer != null)
         {
             int damage = projectileConfig != null ? projectileConfig.damage : 1;
             lifePlayer.ReduceLife(damage);
-        }
+        }*/
         
         bool destroyOnHit = projectileConfig != null ? projectileConfig.destroyOnPlayerHit : true;
         if (destroyOnHit)
