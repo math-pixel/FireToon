@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -70,10 +70,10 @@ public class InGameManager : MonoBehaviour
         var targetGroup = cinemachineTargetGroup;
         for (int i = 0; i < targetGroup.m_Targets.Length; i++)
         {
-            if (targetGroup.m_Targets[i].target == player.transform)
+            if (targetGroup.m_Targets[i].Object == player.transform)
             {
-                targetGroup.m_Targets[i].weight = weight;
-                targetGroup.m_Targets[i].radius = radius;
+                targetGroup.m_Targets[i].Weight = weight;
+                targetGroup.m_Targets[i].Radius = radius;
                 break;
             }
         }

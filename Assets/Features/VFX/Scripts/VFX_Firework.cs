@@ -1,6 +1,6 @@
-using UnityEngine;
-using Cinemachine;
 using System.Collections;
+using Unity.Cinemachine;
+using UnityEngine;
 
 public class VFX_Firework : MonoBehaviour
 {
@@ -87,8 +87,8 @@ public class VFX_Firework : MonoBehaviour
         if (impulseSource != null)
         {
             // Configure impulse source with config values
-            impulseSource.m_ImpulseDefinition.m_ImpulseDuration = vfxConfig.shakeDuration;
-            impulseSource.m_DefaultVelocity = Vector3.one * vfxConfig.shakeIntensity;
+            impulseSource.ImpulseDefinition.ImpulseDuration = vfxConfig.shakeDuration;
+            impulseSource.DefaultVelocity = Vector3.one * vfxConfig.shakeIntensity;
             impulseSource.GenerateImpulse();
         }
     }
