@@ -1,21 +1,23 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Configuration")]
     [SerializeField] private PlayerConfig playerConfig;
-    
+
     [Header("References")]
     [SerializeField] private Gun gun;
+
     [SerializeField] private GameObject gunMesh;
     [SerializeField] private GameObject centerOfMass;
     [SerializeField] public Animator animator;
 
     [Header("Animations")]
     [SerializeField] private AnimationClipData idleAnim;
+
     [SerializeField] private AnimationClipData walkAnim;
     [SerializeField] private AnimationClipData shootAnim;
     [SerializeField] private AnimationClipData dieAnim;
@@ -24,10 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private bool useVelocityBasedRotation = true;
+
     [SerializeField] private float minVelocityForRotation = 0.1f;
 
     [Header("Events")]
     public UnityEvent OnShoot;
+
     public UnityEvent OnStartMoving;
     public UnityEvent OnStopMoving;
 
@@ -40,20 +44,20 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Camera mainCamera;
     private SimpleAnimationController animController;
-    
+
     // Input
     private Vector2 moveInput;
     private Vector3 moveDirection;
     private Vector3 lastMoveDirection;
-    
+
     // Fire state
     private bool firePressed;
     private bool fireHeld;
-    
+
     // Animation state
     private bool isWalkingAnimation;
     private bool isFireAnimation;
-    
+
     // Cached values
     private float moveSpeed;
     private float acceleration;
@@ -88,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!CanMove || playerConfig == null) return;
-        
+
         ApplyMovement();
     }
 
@@ -164,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 forward = mainCamera.transform.forward * moveInput.y;
         Vector3 right = mainCamera.transform.right * moveInput.x;
-        
+
         // ✅ CORRECTION : Normaliser correctement pour éviter la vitesse diagonale supérieure
         moveDirection = (forward + right).normalized;
         moveDirection.y = 0f;
@@ -228,14 +232,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ForceFire()
-    {
-        if (CanMove)
-        {
-            firePressed = true;
-        }
-    }
-
     #endregion
 
     #region Animations
@@ -290,15 +286,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnUpdateSkin(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            SkinManager skinManager = GetComponent<SkinManager>();
-            skinManager?.NextSkin();
-        }
-    }
-
     #endregion
 
     #region Public Methods
@@ -307,74 +294,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gunMesh != null)
             gunMesh.SetActive(false);
-    }
-
-    public void SetAnimator(Animator newAnimator)
-    {
-        animator = newAnimator;
-        animController = newAnimator?.GetComponent<SimpleAnimationController>();
-    }
-
-    public void SetCanMove(bool canMove)
-    {
-        CanMove = canMove;
-        if (!canMove)
-        {
-            // Arrêter le mouvement immédiatement
-            rb.linearVelocity = Vector3.zero;
-            moveInput = Vector2.zero;
-            isWalkingAnimation = false;
-        }
-    }
-
-    public void SetRotationMode(bool useVelocityRotation)
-    {
-        useVelocityBasedRotation = useVelocityRotation;
-    }
-
-    /// <summary>
-    /// Force la rotation du joueur vers une direction spécifique
-    /// </summary>
-    public void SetRotation(Vector3 direction)
-    {
-        if (direction.magnitude > 0.01f)
-        {
-            direction.y = 0f;
-            transform.rotation = Quaternion.LookRotation(direction.normalized);
-        }
-    }
-
-    /// <summary>
-    /// Applique une force externe au joueur (ex: explosion, knockback)
-    /// </summary>
-    public void ApplyExternalForce(Vector3 force, ForceMode forceMode = ForceMode.Impulse)
-    {
-        rb.AddForce(force, forceMode);
-    }
-
-    #endregion
-
-    #region Debug
-
-    private void OnDrawGizmosSelected()
-    {
-        if (Application.isPlaying)
-        {
-            // Afficher la direction de mouvement
-            Gizmos.color = Color.blue;
-            Gizmos.DrawRay(transform.position, moveDirection * 2f);
-            
-            // Afficher la dernière direction de mouvement
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position, lastMoveDirection * 1.5f);
-            
-            // Afficher le centre de masse
-            if (centerOfMass != null)
-            {
-                Gizmos.color = Color.yellow;
-                Gizmos.DrawWireSphere(transform.TransformPoint(rb.centerOfMass), 0.1f);
-            }
-        }
     }
 
     #endregion

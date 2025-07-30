@@ -50,8 +50,6 @@ public class PlayerRegistry : MonoBehaviour
         
         DontDestroyOnLoad(input.gameObject);
         currentNumberOfPlayers++;
-        
-        Debug.Log($"Player {playerNumber} registered. Total: {currentNumberOfPlayers}/{playerCount}");
     }
 
     public void Clear()
@@ -64,54 +62,10 @@ public class PlayerRegistry : MonoBehaviour
         
         Debug.Log("PlayerRegistry cleared");
     }
-
-    public bool IsAllPlayersRegistered()
-    {
-        return currentNumberOfPlayers == playerCount;
-    }
-    
-    public void AddPlayerCount()
-    {
-        int maxPlayers = gameConfig != null ? gameConfig.maxPlayers : 4;
-        if (playerCount + 1 <= maxPlayers)
-        {
-            playerCount++;
-            UpdatePlayerCountText();
-            
-            NotifyLobbyManager();
-        }
-    }
-
-    public void RemovePlayerCount()
-    {
-        int minPlayers = gameConfig != null ? gameConfig.minPlayers : 1;
-        if (playerCount - 1 >= minPlayers)
-        {
-            playerCount--;
-            UpdatePlayerCountText();
-            
-            NotifyLobbyManager();
-        }
-    }
     
     private void UpdatePlayerCountText()
     {
         if (playerCountText != null)
             playerCountText.text = playerCount.ToString();
-    }
-    
-    private void NotifyLobbyManager()
-    {
-        if (GameManager.Instance?.lobbyManager != null)
-        {
-            GameManager.Instance.lobbyManager.UpdatePlayerCount();
-        }
-    }
-    
-    public void UpdateUIReferences(GameObject newSpawner, TMP_Text newPlayerCountText)
-    {
-        spawner = newSpawner;
-        playerCountText = newPlayerCountText;
-        UpdatePlayerCountText();
     }
 }

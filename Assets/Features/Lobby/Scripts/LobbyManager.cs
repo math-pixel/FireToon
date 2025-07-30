@@ -18,22 +18,17 @@ public class LobbyManager : MonoBehaviour
     
     private void Start()
     {
-        if (playerRegistry == null)
+        if (!playerRegistry)
         {
             playerRegistry = PlayerRegistry.Instance;
         }
         
-        if (playerRegistry != null)
-        {
-            playerRegistry.UpdateUIReferences(spawner, playerCountText);
-        }
-        
-        if (validationZone != null)
+        if (validationZone)
         {
             validationZone.onValidationComplete.AddListener(OnValidationComplete);
         }
         
-        if (GameManager.Instance != null)
+        if (GameManager.Instance)
         {
             GameManager.Instance.lobbyManager = this;
             Debug.Log("LobbyManager registered with GameManager");

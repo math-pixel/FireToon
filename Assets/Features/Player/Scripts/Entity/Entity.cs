@@ -4,15 +4,14 @@ using UnityEngine;
 public abstract class Entity: MonoBehaviour
 {
     Life life;
-    
     public event Action OnDie;
     public event Action<int> OnTakeDamage;
     
     public bool IsDead => life.Amount <= 0;
     
-    public void Init(Life _life)
+    public void Init()
     {
-        life = _life;
+        life = new Life(100);
     }
 
     public virtual void Die()
